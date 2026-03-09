@@ -1,0 +1,597 @@
+import { useState, useEffect, useRef } from "react";
+import {
+  Search, Globe, Smartphone, Star, BarChart3, Megaphone, Palette, Hotel,
+  CheckCircle2, ChevronDown, ChevronRight, ArrowRight, Send, X, Sparkles,
+  Clock, User, Zap, MapPin, MousePointerClick, TrendingUp,
+  Shield, Eye, Layout, Target
+} from "lucide-react";
+
+// ─── DATA ────────────────────────────────────────────────────────────────────
+
+const CAT_ICONS = {
+  "Google My Business": MapPin,
+  "Site Web": Globe,
+  "Référencement SEO": Search,
+  "Réseaux Sociaux": Smartphone,
+  "Création Visuelle": Palette,
+  "Avis Clients": Star,
+  "Plateformes Spécialisées": Hotel,
+  "Audit & Consulting": BarChart3,
+  "Publicité en Ligne": Megaphone,
+};
+
+const SERVICES = [
+  {
+    category: "Google My Business",
+    items: [
+      { id: "gmb_creation", name: "Création / revendication de fiche", price: 49, type: "unique", desc: "On crée ou récupère votre fiche Google" },
+      { id: "gmb_optim", name: "Optimisation complète de la fiche", price: 99, type: "unique", desc: "Catégories, description, attributs, horaires" },
+      { id: "gmb_gestion", name: "Gestion mensuelle de la fiche", price: 39, type: "mensuel", desc: "Mise à jour infos, horaires, photos" },
+      { id: "gmb_posts3", name: "Pack 2-3 posts Google/mois", price: 25, type: "mensuel", desc: "Publications régulières sur votre fiche" },
+      { id: "gmb_posts5", name: "Pack 4-5 posts Google/mois", price: 39, type: "mensuel", desc: "Publications fréquentes sur votre fiche" },
+      { id: "gmb_avis", name: "Réponse aux avis Google", price: 25, type: "mensuel", desc: "Réponses personnalisées à tous vos avis" },
+      { id: "gmb_rapport", name: "Rapport mensuel de performance", price: 15, type: "mensuel", desc: "Vues, clics, appels, itinéraires" },
+    ]
+  },
+  {
+    category: "Site Web",
+    items: [
+      { id: "site_5", name: "Site vitrine (1 à 5 pages)", price: 800, type: "unique", desc: "Design, contenu, responsive, SEO de base" },
+      { id: "site_10", name: "Site vitrine (6 à 10 pages)", price: 1200, type: "unique", desc: "Site complet avec pages supplémentaires" },
+      { id: "site_refonte", name: "Refonte de site existant", price: 800, type: "unique", desc: "Modernisation et optimisation" },
+      { id: "site_maintenance", name: "Maintenance mensuelle", price: 29, type: "mensuel", desc: "Mises à jour, sécurité, sauvegardes" },
+      { id: "site_page", name: "Ajout d'une page", price: 79, type: "unique", desc: "Rédaction + intégration + SEO" },
+      { id: "site_resa", name: "Module réservation en ligne", price: 149, type: "unique", desc: "Intégration système de réservation" },
+      { id: "site_commande", name: "Module commande en ligne", price: 249, type: "unique", desc: "Click & collect ou livraison" },
+      { id: "site_hebergement", name: "Hébergement + nom de domaine", price: 15, type: "mensuel", desc: "Gestion technique complète" },
+    ]
+  },
+  {
+    category: "Référencement SEO",
+    items: [
+      { id: "seo_audit", name: "Audit SEO complet", price: 149, type: "unique", desc: "Analyse technique, mots-clés, contenu" },
+      { id: "seo_onpage", name: "Optimisation SEO on-page", price: 99, type: "unique", desc: "Balises, titres, méta, maillage" },
+      { id: "seo_article1", name: "1 article de blog SEO/mois", price: 35, type: "mensuel", desc: "Publication mensuelle ciblée" },
+      { id: "seo_article2", name: "2 articles de blog SEO/mois", price: 59, type: "mensuel", desc: "Publications bimensuelles" },
+      { id: "seo_motscles", name: "Recherche de mots-clés locaux", price: 69, type: "unique", desc: "Étude des recherches dans votre zone" },
+      { id: "seo_suivi", name: "Suivi de positionnement mensuel", price: 15, type: "mensuel", desc: "Rapport de classement Google" },
+      { id: "seo_annuaires", name: "Inscription annuaires locaux", price: 59, type: "unique", desc: "PagesJaunes, Yelp, TripAdvisor…" },
+    ]
+  },
+  {
+    category: "Réseaux Sociaux",
+    items: [
+      { id: "social_insta_creation", name: "Création compte Instagram", price: 49, type: "unique", desc: "Profil, bio, visuels de lancement" },
+      { id: "social_fb_creation", name: "Création page Facebook", price: 49, type: "unique", desc: "Page pro complète" },
+      { id: "social_tiktok_creation", name: "Création compte TikTok", price: 59, type: "unique", desc: "Profil + premières vidéos" },
+      { id: "social_pack4", name: "Pack 4 posts/mois", price: 49, type: "mensuel", desc: "1 publication par semaine" },
+      { id: "social_pack8", name: "Pack 8 posts/mois", price: 89, type: "mensuel", desc: "2 publications par semaine" },
+      { id: "social_mix", name: "Pack 4 posts + 4 stories/mois", price: 59, type: "mensuel", desc: "Mix posts et stories" },
+      { id: "social_insta_full", name: "Gestion complète Instagram", price: 99, type: "mensuel", desc: "Posts + stories + reels + interaction" },
+      { id: "social_fb_full", name: "Gestion complète Facebook", price: 79, type: "mensuel", desc: "Publications + réponses + événements" },
+      { id: "social_multi", name: "Gestion multi-plateformes", price: 149, type: "mensuel", desc: "Instagram + Facebook + TikTok" },
+    ]
+  },
+  {
+    category: "Création Visuelle",
+    items: [
+      { id: "visual_1", name: "Visuel IA (à l'unité)", price: 15, type: "unique", desc: "Photo réaliste, mise en scène pro" },
+      { id: "visual_4", name: "Pack 4 visuels IA", price: 49, type: "unique", desc: "Cohérence graphique" },
+      { id: "visual_8", name: "Pack 8 visuels IA", price: 79, type: "unique", desc: "Pour publications fréquentes" },
+      { id: "visual_10", name: "Pack 10 visuels IA", price: 99, type: "unique", desc: "Lot complet pour lancement" },
+      { id: "visual_template", name: "Template réutilisable", price: 39, type: "unique", desc: "Modèle aux couleurs du client" },
+      { id: "visual_video_court", name: "Montage vidéo courte (< 30s)", price: 25, type: "unique", desc: "Reel, TikTok, story" },
+      { id: "visual_video_long", name: "Montage vidéo (30s - 2min)", price: 59, type: "unique", desc: "Présentation, témoignage" },
+      { id: "visual_menu", name: "Création menu / carte PDF", price: 69, type: "unique", desc: "Design pro de votre menu" },
+      { id: "visual_flyer", name: "Création flyer / support print", price: 69, type: "unique", desc: "Design A5 ou A4" },
+    ]
+  },
+  {
+    category: "Avis Clients",
+    items: [
+      { id: "avis_qr_google", name: "QR Code avis Google", price: 19, type: "unique", desc: "QR Code + support imprimable" },
+      { id: "avis_qr_trip", name: "QR Code TripAdvisor", price: 19, type: "unique", desc: "QR Code + support imprimable" },
+      { id: "avis_qr_pack", name: "Pack QR Codes multi-plateformes", price: 39, type: "unique", desc: "Google + TripAdvisor + autre" },
+      { id: "avis_strategie", name: "Stratégie de collecte d'avis", price: 39, type: "unique", desc: "Mise en place du process complet" },
+      { id: "avis_gestion_google", name: "Gestion avis Google", price: 25, type: "mensuel", desc: "Réponses personnalisées" },
+      { id: "avis_gestion_multi", name: "Gestion avis multi-plateformes", price: 39, type: "mensuel", desc: "Google + TripAdvisor + autre" },
+      { id: "avis_veille", name: "Veille e-réputation", price: 19, type: "mensuel", desc: "Suivi note, alertes, rapport" },
+    ]
+  },
+  {
+    category: "Plateformes Spécialisées",
+    items: [
+      { id: "plat_tripadvisor", name: "Optimisation fiche TripAdvisor", price: 49, type: "unique", desc: "Profil complet, photos, infos" },
+      { id: "plat_thefork", name: "Optimisation fiche TheFork", price: 49, type: "unique", desc: "Profil + menu + photos" },
+      { id: "plat_booking", name: "Optimisation fiche Booking", price: 59, type: "unique", desc: "Pour hôtels / hébergements" },
+      { id: "plat_airbnb", name: "Optimisation fiche Airbnb", price: 79, type: "unique", desc: "Annonce complète + photos + texte" },
+      { id: "plat_gestion_thefork", name: "Gestion mensuelle TheFork", price: 29, type: "mensuel", desc: "Mises à jour, offres, suivi" },
+      { id: "plat_gestion_booking", name: "Gestion mensuelle Booking", price: 29, type: "mensuel", desc: "Tarifs, mises à jour, réponses" },
+    ]
+  },
+  {
+    category: "Audit & Consulting",
+    items: [
+      { id: "audit_complet", name: "Audit stratégie digitale complet", price: 249, type: "unique", desc: "Google + site + réseaux + avis + concurrence" },
+      { id: "audit_gmb", name: "Audit Google My Business", price: 79, type: "unique", desc: "Analyse fiche + recommandations" },
+      { id: "audit_social", name: "Audit réseaux sociaux", price: 79, type: "unique", desc: "Analyse présence + recommandations" },
+      { id: "audit_seo", name: "Audit SEO", price: 99, type: "unique", desc: "Technique + mots-clés + contenu" },
+      { id: "formation_gmb", name: "Formation Google My Business (1h)", price: 49, type: "unique", desc: "Apprenez à gérer votre fiche" },
+      { id: "formation_social", name: "Formation réseaux sociaux (1h)", price: 49, type: "unique", desc: "Les bases Instagram / Facebook" },
+      { id: "consulting", name: "Consulting stratégique (1h)", price: 39, type: "unique", desc: "Session de conseil personnalisé" },
+    ]
+  },
+  {
+    category: "Publicité en Ligne",
+    items: [
+      { id: "ads_google_creation", name: "Création campagne Google Ads", price: 99, type: "unique", desc: "Configuration + ciblage + annonces" },
+      { id: "ads_google_gestion", name: "Gestion mensuelle Google Ads", price: 49, type: "mensuel", desc: "Optimisation + rapport (hors budget pub)" },
+      { id: "ads_meta_creation", name: "Création campagne Meta Ads", price: 99, type: "unique", desc: "Configuration + visuels + ciblage" },
+      { id: "ads_meta_gestion", name: "Gestion mensuelle Meta Ads", price: 49, type: "mensuel", desc: "Optimisation + rapport (hors budget pub)" },
+    ]
+  }
+];
+
+const PACKS = [
+  {
+    id: "essentiel", name: "Essentiel", tagline: "L'indispensable pour exister en ligne",
+    monthly: 54, setup: 0,
+    items: ["gmb_gestion", "gmb_rapport"],
+    highlights: ["Fiche Google gérée & optimisée", "Rapport de performance mensuel"],
+    ideal: "Artisan ou indépendant qui débute", icon: Eye,
+  },
+  {
+    id: "visible", name: "Visible", tagline: "Google + réseaux sociaux actifs",
+    monthly: 88, setup: 0, popular: true,
+    items: ["gmb_gestion", "social_pack4"],
+    highlights: ["Fiche Google gérée", "4 posts Instagram par mois", "1 publication par semaine"],
+    ideal: "Commerce ou restaurant local", icon: TrendingUp,
+  },
+  {
+    id: "confort", name: "Confort", tagline: "Visibilité complète, zéro effort",
+    monthly: 163, setup: 0,
+    items: ["gmb_gestion", "social_insta_full", "avis_gestion_google"],
+    highlights: ["Fiche Google gérée", "Instagram géré intégralement", "Avis clients traités"],
+    ideal: "Établissement ambitieux", icon: Sparkles,
+  },
+  {
+    id: "lancement", name: "Lancement", tagline: "Tout mettre en place from scratch",
+    monthly: 0, setup: 436,
+    items: ["audit_complet", "social_insta_creation", "avis_qr_pack", "seo_onpage"],
+    highlights: ["Audit digital complet", "Création Instagram", "Pack QR codes avis", "SEO on-page optimisé"],
+    ideal: "Ouverture ou refonte totale", icon: Zap,
+  },
+];
+
+// ─── TOKENS ──────────────────────────────────────────────────────────────────
+
+const C = {
+  navy: "#0F1B2D",
+  navyLight: "#1A2B45",
+  navyMuted: "#2A3F5F",
+  accent: "#2563EB",
+  accentSoft: "rgba(37,99,235,0.07)",
+  accentSofter: "rgba(37,99,235,0.03)",
+  bg: "#F8F9FC",
+  white: "#FFFFFF",
+  text: "#0F1B2D",
+  textSec: "#4A5568",
+  textMuted: "#94A3B8",
+  border: "#E2E8F0",
+  borderLight: "#EEF2F7",
+  success: "#10B981",
+};
+
+// ─── APP ─────────────────────────────────────────────────────────────────────
+
+export default function App() {
+  const [selected, setSelected] = useState({});
+  const [openCat, setOpenCat] = useState(null);
+  const [showSummary, setShowSummary] = useState(false);
+  const [engagement, setEngagement] = useState(null);
+  const [animateTotal, setAnimateTotal] = useState(false);
+  const [businessName, setBusinessName] = useState("");
+  const [email, setEmail] = useState("");
+  const [vis, setVis] = useState(false);
+  const configRef = useRef(null);
+  const packsRef = useRef(null);
+
+  useEffect(() => { setTimeout(() => setVis(true), 80); }, []);
+
+  const toggle = (id) => {
+    setSelected(p => { const n = { ...p }; if (n[id]) delete n[id]; else n[id] = true; return n; });
+    setAnimateTotal(true); setTimeout(() => setAnimateTotal(false), 400);
+  };
+
+  const applyPack = (pack) => {
+    const n = {}; pack.items.forEach(id => { n[id] = true; }); setSelected(n);
+    setAnimateTotal(true); setTimeout(() => setAnimateTotal(false), 400);
+    setTimeout(() => configRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }), 200);
+  };
+
+  const allItems = SERVICES.flatMap(c => c.items);
+  const selectedItems = allItems.filter(i => selected[i.id]);
+  const totalUnique = selectedItems.filter(i => i.type === "unique").reduce((s, i) => s + i.price, 0);
+  const totalMensuel = selectedItems.filter(i => i.type === "mensuel").reduce((s, i) => s + i.price, 0);
+  const mensuelCount = selectedItems.filter(i => i.type === "mensuel").length;
+  const count = selectedItems.length;
+
+  let remiseLabel = null, remiseAmount = 0;
+  if (engagement === "12mois") { remiseAmount = Math.round(totalMensuel * 0.10); remiseLabel = "-10%"; }
+  else if (mensuelCount >= 2 && !engagement) { remiseAmount = Math.round(totalMensuel * 0.05); remiseLabel = "-5%"; }
+  const finalMensuel = totalMensuel - remiseAmount;
+  const finalUnique = engagement === "6mois" ? Math.max(0, totalUnique - 249) : totalUnique;
+  const auditOffert = engagement === "6mois";
+
+  const go = (ref) => setTimeout(() => ref.current?.scrollIntoView({ behavior: "smooth", block: "start" }), 100);
+
+  return (
+    <div style={{ fontFamily: "'DM Sans', -apple-system, sans-serif", background: C.bg, color: C.text, minHeight: "100vh", overflowX: "hidden" }}>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&display=swap');
+        *{box-sizing:border-box;margin:0;padding:0}
+        ::selection{background:${C.accent};color:#fff}
+        html{scroll-behavior:smooth}
+        @keyframes fu{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:translateY(0)}}
+        @keyframes si{from{opacity:0;transform:translateX(-12px)}to{opacity:1;transform:translateX(0)}}
+        @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+        .fu{animation:fu .85s cubic-bezier(.22,1,.36,1) forwards}
+        .fd1{animation:fu .85s cubic-bezier(.22,1,.36,1) .1s forwards;opacity:0}
+        .fd2{animation:fu .85s cubic-bezier(.22,1,.36,1) .2s forwards;opacity:0}
+        .fd3{animation:fu .85s cubic-bezier(.22,1,.36,1) .3s forwards;opacity:0}
+        .fd4{animation:fu .85s cubic-bezier(.22,1,.36,1) .4s forwards;opacity:0}
+        .tp{animation:pulse .35s ease}
+        .sf{font-family:'Playfair Display',Georgia,serif}
+        .cr{transition:all .25s ease}.cr:hover{background:${C.accentSofter}}
+        .ir{transition:all .18s ease}.ir:hover{background:${C.accentSofter}!important}
+        .pc{transition:all .35s cubic-bezier(.22,1,.36,1)}.pc:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(15,27,45,.08)}
+        .bp{transition:all .25s ease}.bp:hover{transform:translateY(-1px);box-shadow:0 8px 30px rgba(37,99,235,.2)}
+        .bo{transition:all .25s ease}.bo:hover{background:${C.navy};color:#fff}
+        .ec{transition:all .2s ease;cursor:pointer}.ec:hover{border-color:${C.accent}!important;color:${C.accent}!important}
+        input:focus{outline:none;border-color:${C.accent}!important;box-shadow:0 0 0 3px ${C.accentSoft}}
+        @media(max-width:900px){.pg{grid-template-columns:repeat(2,1fr)!important}}
+        @media(max-width:600px){.pg{grid-template-columns:1fr!important}.sr{gap:24px!important}.ht{font-size:2.4rem!important}}
+      `}</style>
+
+      {/* NAV */}
+      <nav style={{position:"fixed",top:0,left:0,right:0,zIndex:100,background:"rgba(248,249,252,.92)",backdropFilter:"blur(20px)",borderBottom:`1px solid ${C.borderLight}`}}>
+        <div style={{maxWidth:1140,margin:"0 auto",padding:"0 28px",height:68,display:"flex",alignItems:"center",justifyContent:"space-between"}}>
+          <div style={{display:"flex",alignItems:"center",gap:12}}>
+            <div style={{width:38,height:38,borderRadius:10,background:C.navy,display:"flex",alignItems:"center",justifyContent:"center"}}>
+              <span className="sf" style={{color:"#fff",fontSize:18,fontWeight:600,fontStyle:"italic"}}>R</span>
+            </div>
+            <div>
+              <div style={{fontWeight:600,fontSize:15,color:C.navy,letterSpacing:"-.02em"}}>Rémi</div>
+              <div style={{fontSize:11,color:C.textMuted,letterSpacing:".02em"}}>Booster de visibilité</div>
+            </div>
+          </div>
+          <div style={{display:"flex",gap:6,alignItems:"center"}}>
+            <button onClick={()=>go(packsRef)} style={{padding:"9px 18px",background:"none",border:"none",color:C.textSec,fontFamily:"inherit",fontSize:13,cursor:"pointer",fontWeight:500,borderRadius:8}}>Offres</button>
+            <button onClick={()=>go(configRef)} className="bp" style={{padding:"9px 22px",background:C.navy,color:"#fff",border:"none",borderRadius:8,fontFamily:"inherit",fontWeight:600,fontSize:13,cursor:"pointer"}}>Estimer mon projet</button>
+          </div>
+        </div>
+      </nav>
+
+      {/* HERO */}
+      <section style={{minHeight:"100vh",display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center",textAlign:"center",padding:"140px 24px 100px",position:"relative",background:"#fff"}}>
+        <div style={{position:"absolute",inset:0,opacity:.012,pointerEvents:"none",backgroundImage:"radial-gradient(circle at 1px 1px, #0F1B2D 1px, transparent 0)",backgroundSize:"48px 48px"}}/>
+
+        <div className={vis?"fu":""} style={{opacity:vis?undefined:0,display:"inline-flex",alignItems:"center",gap:8,padding:"8px 20px",borderRadius:100,border:`1px solid ${C.border}`,marginBottom:40,fontSize:13,color:C.textSec,fontWeight:500,background:"#fff"}}>
+          <MapPin size={14} color={C.accent}/> Développeur web & Référencement — Aix-en-Provence
+        </div>
+
+        <h1 className={`ht sf ${vis?"fd1":""}`} style={{opacity:vis?undefined:0,fontSize:"clamp(2.4rem,6vw,4.4rem)",fontWeight:500,lineHeight:1.1,maxWidth:780,letterSpacing:"-.02em",marginBottom:28,color:C.navy}}>
+          Vos clients vous <span style={{fontStyle:"italic",color:C.accent}}>cherchent</span> sur Google.
+          <br/>Est-ce qu'ils vous trouvent&nbsp;?
+        </h1>
+
+        <p className={vis?"fd2":""} style={{opacity:vis?undefined:0,fontSize:"clamp(1rem,2vw,1.1rem)",color:C.textSec,maxWidth:520,lineHeight:1.8,marginBottom:48}}>
+          Site web, fiche Google, Instagram, avis clients — je rends votre établissement impossible à rater. Un seul interlocuteur, des résultats mesurables.
+        </p>
+
+        <div className={vis?"fd3":""} style={{opacity:vis?undefined:0,display:"flex",gap:14,flexWrap:"wrap",justifyContent:"center"}}>
+          <button onClick={()=>go(packsRef)} className="bp" style={{padding:"16px 36px",background:C.navy,color:"#fff",border:"none",borderRadius:10,fontFamily:"inherit",fontWeight:600,fontSize:15,cursor:"pointer",display:"flex",alignItems:"center",gap:8}}>
+            Découvrir les offres <ArrowRight size={16}/>
+          </button>
+          <button onClick={()=>go(configRef)} className="bo" style={{padding:"16px 36px",background:"transparent",color:C.navy,border:`1.5px solid ${C.navy}`,borderRadius:10,fontFamily:"inherit",fontWeight:600,fontSize:15,cursor:"pointer"}}>
+            Devis sur mesure
+          </button>
+        </div>
+
+        <div className={`sr ${vis?"fd4":""}`} style={{opacity:vis?undefined:0,display:"flex",gap:56,marginTop:80,flexWrap:"wrap",justifyContent:"center"}}>
+          {[
+            {v:"60+",l:"prestations",I:Layout},{v:"29€",l:"à partir de / mois",I:Target},
+            {v:"<24h",l:"temps de réponse",I:Clock},{v:"100%",l:"prix transparents",I:Shield},
+          ].map((s,i)=>(
+            <div key={i} style={{textAlign:"center",display:"flex",flexDirection:"column",alignItems:"center"}}>
+              <div style={{width:44,height:44,borderRadius:12,background:C.accentSoft,display:"flex",alignItems:"center",justifyContent:"center",marginBottom:12}}>
+                <s.I size={20} color={C.accent} strokeWidth={1.8}/>
+              </div>
+              <div className="sf" style={{fontSize:26,fontWeight:600,color:C.navy,letterSpacing:"-.02em"}}>{s.v}</div>
+              <div style={{fontSize:12,color:C.textMuted,marginTop:4}}>{s.l}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* PACKS */}
+      <section ref={packsRef} style={{padding:"100px 24px",background:C.bg}}>
+        <div style={{maxWidth:1140,margin:"0 auto"}}>
+          <div style={{textAlign:"center",marginBottom:64}}>
+            <div style={{fontSize:12,fontWeight:600,color:C.accent,textTransform:"uppercase",letterSpacing:".14em",marginBottom:14,display:"flex",alignItems:"center",justifyContent:"center",gap:8}}>
+              <Sparkles size={14}/> Offres packagées
+            </div>
+            <h2 className="sf" style={{fontSize:"clamp(1.8rem,4vw,2.6rem)",fontWeight:500,letterSpacing:"-.02em",marginBottom:14,color:C.navy}}>
+              Choisissez votre niveau de <span style={{fontStyle:"italic",color:C.accent}}>visibilité</span>
+            </h2>
+            <p style={{color:C.textSec,fontSize:15,maxWidth:480,margin:"0 auto",lineHeight:1.7}}>
+              Des formules clés en main, ou composez votre offre à la carte plus bas.
+            </p>
+          </div>
+
+          <div className="pg" style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:20}}>
+            {PACKS.map((pk)=>{
+              const I=pk.icon;
+              return(
+                <div key={pk.id} className="pc" style={{background:"#fff",border:pk.popular?`2px solid ${C.accent}`:`1px solid ${C.border}`,borderRadius:16,padding:"32px 26px 26px",display:"flex",flexDirection:"column",position:"relative"}}>
+                  {pk.popular&&(
+                    <div style={{position:"absolute",top:-1,left:"50%",transform:"translateX(-50%) translateY(-50%)",padding:"5px 16px",borderRadius:100,background:C.accent,color:"#fff",fontSize:11,fontWeight:600,letterSpacing:".04em",whiteSpace:"nowrap"}}>Le plus populaire</div>
+                  )}
+                  <div style={{width:44,height:44,borderRadius:12,background:pk.popular?C.accentSoft:C.borderLight,display:"flex",alignItems:"center",justifyContent:"center",marginBottom:20}}>
+                    <I size={20} color={pk.popular?C.accent:C.navyMuted} strokeWidth={1.8}/>
+                  </div>
+                  <div style={{fontSize:18,fontWeight:600,color:C.navy,marginBottom:4,letterSpacing:"-.02em"}}>{pk.name}</div>
+                  <div style={{fontSize:13,color:C.textMuted,marginBottom:24,lineHeight:1.5}}>{pk.tagline}</div>
+                  <div style={{marginBottom:24}}>
+                    {pk.monthly>0?(
+                      <div style={{display:"flex",alignItems:"baseline",gap:4}}>
+                        <span className="sf" style={{fontSize:40,fontWeight:600,color:C.navy,lineHeight:1}}>{pk.monthly}</span>
+                        <span style={{fontSize:14,color:C.textMuted}}>€/mois</span>
+                      </div>
+                    ):(
+                      <div style={{display:"flex",alignItems:"baseline",gap:4}}>
+                        <span className="sf" style={{fontSize:40,fontWeight:600,color:C.navy,lineHeight:1}}>{pk.setup}</span>
+                        <span style={{fontSize:14,color:C.textMuted}}>€ unique</span>
+                      </div>
+                    )}
+                  </div>
+                  <div style={{flex:1,marginBottom:20}}>
+                    {pk.highlights.map((h,hi)=>(
+                      <div key={hi} style={{display:"flex",alignItems:"flex-start",gap:10,marginBottom:12}}>
+                        <CheckCircle2 size={16} color={C.success} strokeWidth={2} style={{marginTop:2,flexShrink:0}}/>
+                        <span style={{fontSize:13,color:C.textSec,lineHeight:1.4}}>{h}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <div style={{fontSize:12,color:C.textMuted,marginBottom:18,fontStyle:"italic",paddingTop:12,borderTop:`1px solid ${C.borderLight}`}}>
+                    Idéal : {pk.ideal}
+                  </div>
+                  <button onClick={()=>applyPack(pk)} className={pk.popular?"bp":"bo"} style={{
+                    width:"100%",padding:"12px",borderRadius:10,fontFamily:"inherit",fontWeight:600,fontSize:13,cursor:"pointer",
+                    display:"flex",alignItems:"center",justifyContent:"center",gap:6,
+                    background:pk.popular?C.navy:"transparent",color:pk.popular?"#fff":C.navy,
+                    border:pk.popular?"none":`1.5px solid ${C.border}`,
+                  }}>Sélectionner <ChevronRight size={15}/></button>
+                </div>
+              );
+            })}
+          </div>
+
+          <div style={{marginTop:48,textAlign:"center"}}>
+            <div style={{fontSize:13,color:C.textMuted,marginBottom:16}}>Réduisez encore vos coûts</div>
+            <div style={{display:"flex",gap:12,justifyContent:"center",flexWrap:"wrap"}}>
+              {[{id:"6mois",label:"Engagement 6 mois",desc:"Audit offert (249€)"},{id:"12mois",label:"Engagement 12 mois",desc:"-10% mensuel"}].map(r=>(
+                <button key={r.id} className="ec" onClick={()=>setEngagement(engagement===r.id?null:r.id)} style={{
+                  padding:"10px 22px",borderRadius:100,
+                  background:engagement===r.id?C.accentSoft:"#fff",
+                  border:`1.5px solid ${engagement===r.id?C.accent:C.border}`,
+                  color:engagement===r.id?C.accent:C.textSec,
+                  fontFamily:"inherit",fontSize:13,fontWeight:engagement===r.id?600:400,
+                }}>{r.label} — <span style={{fontWeight:600}}>{r.desc}</span></button>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CONFIGURATOR */}
+      <section ref={configRef} style={{padding:"100px 24px 60px",background:"#fff"}}>
+        <div style={{maxWidth:780,margin:"0 auto"}}>
+          <div style={{textAlign:"center",marginBottom:56}}>
+            <div style={{fontSize:12,fontWeight:600,color:C.accent,textTransform:"uppercase",letterSpacing:".14em",marginBottom:14,display:"flex",alignItems:"center",justifyContent:"center",gap:8}}>
+              <MousePointerClick size={14}/> Configurateur de devis
+            </div>
+            <h2 className="sf" style={{fontSize:"clamp(1.6rem,4vw,2.4rem)",fontWeight:500,letterSpacing:"-.02em",marginBottom:12,color:C.navy}}>
+              Composez <span style={{fontStyle:"italic",color:C.accent}}>à la carte</span>
+            </h2>
+            <p style={{color:C.textSec,fontSize:14,maxWidth:440,margin:"0 auto",lineHeight:1.7}}>
+              Sélectionnez vos prestations. Le devis se calcule instantanément. Prix HT.
+            </p>
+          </div>
+
+          <div style={{display:"flex",flexDirection:"column",gap:4}}>
+            {SERVICES.map((cat,ci)=>{
+              const isOpen=openCat===ci;
+              const catSel=cat.items.filter(i=>selected[i.id]).length;
+              const Icon=CAT_ICONS[cat.category]||Layout;
+              return(
+                <div key={ci} style={{background:isOpen?C.accentSofter:"#fff",border:`1px solid ${isOpen?"rgba(37,99,235,.12)":C.border}`,borderRadius:12,overflow:"hidden",transition:"all .25s ease"}}>
+                  <button className="cr" onClick={()=>setOpenCat(isOpen?null:ci)} style={{width:"100%",padding:"16px 20px",display:"flex",alignItems:"center",justifyContent:"space-between",background:"none",border:"none",cursor:"pointer",color:C.text,fontFamily:"inherit",borderRadius:12}}>
+                    <div style={{display:"flex",alignItems:"center",gap:14}}>
+                      <div style={{width:36,height:36,borderRadius:10,background:isOpen?C.accentSoft:C.borderLight,display:"flex",alignItems:"center",justifyContent:"center",transition:"all .25s ease"}}>
+                        <Icon size={18} color={isOpen?C.accent:C.navyMuted} strokeWidth={1.8}/>
+                      </div>
+                      <span style={{fontWeight:500,fontSize:14,letterSpacing:"-.01em",color:C.navy}}>{cat.category}</span>
+                      {catSel>0&&<span style={{padding:"3px 10px",borderRadius:100,background:C.accent,color:"#fff",fontSize:11,fontWeight:700}}>{catSel}</span>}
+                    </div>
+                    <div style={{display:"flex",alignItems:"center",gap:10}}>
+                      <span style={{fontSize:12,color:C.textMuted}}>{cat.items.length} prestations</span>
+                      <ChevronDown size={18} color={isOpen?C.accent:C.textMuted} style={{transition:"transform .3s ease",transform:isOpen?"rotate(180deg)":"rotate(0deg)"}}/>
+                    </div>
+                  </button>
+                  {isOpen&&(
+                    <div style={{padding:"0 8px 8px"}}>
+                      {cat.items.map((item,ii)=>{
+                        const s=selected[item.id];
+                        return(
+                          <div key={ii} className="ir" onClick={()=>toggle(item.id)} style={{display:"flex",alignItems:"center",justifyContent:"space-between",padding:"12px 14px",borderRadius:10,cursor:"pointer",background:s?C.accentSoft:"transparent",animation:`si .25s ease ${ii*.03}s forwards`,opacity:0}}>
+                            <div style={{display:"flex",alignItems:"center",gap:12,flex:1,minWidth:0}}>
+                              <div style={{width:20,height:20,borderRadius:6,flexShrink:0,border:`1.5px solid ${s?C.accent:C.border}`,background:s?C.accent:"#fff",display:"flex",alignItems:"center",justifyContent:"center",transition:"all .2s ease"}}>
+                                {s&&<CheckCircle2 size={13} color="#fff" strokeWidth={2.5}/>}
+                              </div>
+                              <div style={{minWidth:0}}>
+                                <div style={{fontSize:13,fontWeight:s?500:400,color:s?C.navy:C.textSec}}>{item.name}</div>
+                                <div style={{fontSize:11,color:C.textMuted,marginTop:2}}>{item.desc}</div>
+                              </div>
+                            </div>
+                            <div style={{textAlign:"right",flexShrink:0,marginLeft:16}}>
+                              <div style={{fontSize:14,fontWeight:600,color:s?C.accent:C.textSec}}>{item.price}€</div>
+                              <div style={{fontSize:10,color:C.textMuted,textTransform:"uppercase",letterSpacing:".06em",fontWeight:500,marginTop:1}}>{item.type}</div>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* STICKY BAR */}
+      {count>0&&(
+        <div style={{position:"fixed",bottom:0,left:0,right:0,zIndex:100,background:"rgba(255,255,255,.96)",backdropFilter:"blur(20px)",borderTop:`1px solid ${C.border}`,padding:"12px 24px",boxShadow:"0 -4px 30px rgba(15,27,45,.06)"}}>
+          <div style={{maxWidth:780,margin:"0 auto",display:"flex",alignItems:"center",justifyContent:"space-between",flexWrap:"wrap",gap:10}}>
+            <div style={{display:"flex",alignItems:"center",gap:20,flexWrap:"wrap"}}>
+              <span style={{fontSize:13,color:C.textMuted}}><span style={{fontWeight:700,color:C.accent}}>{count}</span> prestation{count>1?"s":""}</span>
+              {finalUnique>0&&(
+                <div className={animateTotal?"tp":""}>
+                  <span style={{fontSize:11,color:C.textMuted,textTransform:"uppercase",letterSpacing:".04em"}}>Unique </span>
+                  <span style={{fontSize:18,fontWeight:700,color:C.navy}}>{finalUnique}€</span>
+                  {auditOffert&&totalUnique!==finalUnique&&<span style={{fontSize:11,color:C.success,marginLeft:6,fontWeight:600}}>audit offert</span>}
+                </div>
+              )}
+              {finalMensuel>0&&(
+                <div className={animateTotal?"tp":""}>
+                  <span style={{fontSize:11,color:C.textMuted,textTransform:"uppercase",letterSpacing:".04em"}}>Mensuel </span>
+                  <span style={{fontSize:18,fontWeight:700,color:C.accent}}>{finalMensuel}€<span style={{fontSize:12,fontWeight:400}}>/mois</span></span>
+                  {remiseAmount>0&&<span style={{fontSize:11,color:C.success,marginLeft:6,fontWeight:600}}>{remiseLabel}</span>}
+                </div>
+              )}
+            </div>
+            <button onClick={()=>setShowSummary(true)} className="bp" style={{padding:"10px 24px",background:C.navy,color:"#fff",border:"none",borderRadius:10,fontFamily:"inherit",fontWeight:600,fontSize:13,cursor:"pointer",display:"flex",alignItems:"center",gap:6}}>
+              Récapitulatif <ArrowRight size={15}/>
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* MODAL */}
+      {showSummary&&(
+        <div onClick={()=>setShowSummary(false)} style={{position:"fixed",inset:0,zIndex:200,background:"rgba(15,27,45,.35)",backdropFilter:"blur(8px)",display:"flex",alignItems:"center",justifyContent:"center",padding:20}}>
+          <div onClick={e=>e.stopPropagation()} style={{background:"#fff",border:`1px solid ${C.border}`,borderRadius:20,maxWidth:560,width:"100%",maxHeight:"88vh",overflow:"auto",padding:36,boxShadow:"0 24px 80px rgba(15,27,45,.12)"}}>
+            <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:28}}>
+              <h3 className="sf" style={{fontSize:24,fontWeight:500,color:C.navy}}>Votre <span style={{fontStyle:"italic",color:C.accent}}>estimation</span></h3>
+              <button onClick={()=>setShowSummary(false)} style={{background:C.borderLight,border:"none",color:C.textMuted,width:32,height:32,borderRadius:8,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center"}}><X size={16}/></button>
+            </div>
+
+            {SERVICES.map((cat,ci)=>{
+              const items=cat.items.filter(i=>selected[i.id]);
+              if(!items.length) return null;
+              const Icon=CAT_ICONS[cat.category]||Layout;
+              return(
+                <div key={ci} style={{marginBottom:22}}>
+                  <div style={{fontSize:11,fontWeight:600,color:C.accent,textTransform:"uppercase",letterSpacing:".1em",marginBottom:10,display:"flex",alignItems:"center",gap:6}}><Icon size={13}/> {cat.category}</div>
+                  {items.map((item,ii)=>(
+                    <div key={ii} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"9px 0",borderBottom:`1px solid ${C.borderLight}`}}>
+                      <span style={{fontSize:13,color:C.textSec}}>{item.name}</span>
+                      <span style={{fontSize:13,fontWeight:600,color:C.navy,whiteSpace:"nowrap",marginLeft:16}}>{item.price}€ <span style={{fontSize:10,color:C.textMuted,fontWeight:400}}>{item.type}</span></span>
+                    </div>
+                  ))}
+                </div>
+              );
+            })}
+
+            <div style={{borderTop:`2px solid ${C.border}`,paddingTop:20,marginTop:12}}>
+              {totalUnique>0&&(
+                <div style={{display:"flex",justifyContent:"space-between",marginBottom:10}}>
+                  <span style={{fontSize:14,color:C.textSec}}>Prestations uniques</span>
+                  <div style={{display:"flex",alignItems:"center",gap:8}}>
+                    {auditOffert&&<span style={{fontSize:11,color:C.success,fontWeight:600}}>audit offert</span>}
+                    <span style={{fontSize:20,fontWeight:700,color:C.navy}}>{finalUnique}€</span>
+                  </div>
+                </div>
+              )}
+              {totalMensuel>0&&(
+                <div style={{display:"flex",justifyContent:"space-between"}}>
+                  <span style={{fontSize:14,color:C.textSec}}>Total mensuel</span>
+                  <div style={{display:"flex",alignItems:"center",gap:8}}>
+                    {remiseAmount>0&&<span style={{fontSize:11,color:C.success,fontWeight:600}}>{remiseLabel}</span>}
+                    <span style={{fontSize:20,fontWeight:700,color:C.accent}}>{finalMensuel}€<span style={{fontSize:12,fontWeight:400}}>/mois</span></span>
+                  </div>
+                </div>
+              )}
+              {engagement&&(
+                <div style={{marginTop:14,padding:"10px 16px",borderRadius:10,background:"rgba(16,185,129,.06)",border:"1px solid rgba(16,185,129,.12)"}}>
+                  <span style={{fontSize:12,color:C.success,fontWeight:500}}>
+                    {engagement==="6mois"?"Engagement 6 mois → audit digital offert (249€)":"Engagement 12 mois → -10% sur le mensuel"}
+                  </span>
+                </div>
+              )}
+            </div>
+
+            <div style={{marginTop:28,padding:24,background:C.bg,borderRadius:14,border:`1px solid ${C.borderLight}`}}>
+              <div style={{fontSize:14,fontWeight:600,color:C.navy,marginBottom:14}}>Recevoir cette estimation</div>
+              <input type="text" placeholder="Nom de votre établissement" value={businessName} onChange={e=>setBusinessName(e.target.value)} style={{width:"100%",padding:"11px 14px",background:"#fff",border:`1.5px solid ${C.border}`,borderRadius:8,color:C.text,fontFamily:"inherit",fontSize:14,marginBottom:8,transition:"all .2s ease"}}/>
+              <div style={{display:"flex",gap:8}}>
+                <input type="email" placeholder="Votre email" value={email} onChange={e=>setEmail(e.target.value)} style={{flex:1,padding:"11px 14px",background:"#fff",border:`1.5px solid ${C.border}`,borderRadius:8,color:C.text,fontFamily:"inherit",fontSize:14,transition:"all .2s ease"}}/>
+                <button className="bp" style={{padding:"11px 22px",background:C.navy,color:"#fff",border:"none",borderRadius:8,fontFamily:"inherit",fontWeight:600,fontSize:14,cursor:"pointer",whiteSpace:"nowrap",display:"flex",alignItems:"center",gap:6}}>
+                  <Send size={14}/> Envoyer
+                </button>
+              </div>
+            </div>
+            <p style={{fontSize:11,color:C.textMuted,textAlign:"center",marginTop:16,lineHeight:1.6}}>Estimation indicative, sans engagement. Devis personnalisé après échange.</p>
+          </div>
+        </div>
+      )}
+
+      {/* CREDIBILITY */}
+      <section style={{padding:"80px 24px",background:C.bg}}>
+        <div style={{maxWidth:900,margin:"0 auto",display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(260px,1fr))",gap:20}}>
+          {[
+            {I:Sparkles,t:"L'IA comme levier",d:"Rédaction, visuels, analyse — l'intelligence artificielle accélère chaque tâche. Le gain est répercuté sur vos prix."},
+            {I:User,t:"Un interlocuteur unique",d:"Pas d'agence, pas de commercial. Un seul contact dédié qui connaît votre projet de A à Z."},
+            {I:Clock,t:"Réactivité exemplaire",d:"Réponse en moins de 24h en semaine. Échanges par WhatsApp ou email, comme vous préférez."},
+          ].map((item,i)=>(
+            <div key={i} style={{padding:32,borderRadius:16,background:"#fff",border:`1px solid ${C.borderLight}`}}>
+              <div style={{width:48,height:48,borderRadius:12,background:C.accentSoft,display:"flex",alignItems:"center",justifyContent:"center",marginBottom:20}}>
+                <item.I size={22} color={C.accent} strokeWidth={1.8}/>
+              </div>
+              <div style={{fontSize:16,fontWeight:600,color:C.navy,marginBottom:10,letterSpacing:"-.02em"}}>{item.t}</div>
+              <div style={{fontSize:14,color:C.textSec,lineHeight:1.7}}>{item.d}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section style={{padding:"80px 24px 60px",textAlign:"center",background:"#fff"}}>
+        <h2 className="sf" style={{fontSize:"clamp(1.5rem,3vw,2.2rem)",fontWeight:500,marginBottom:14,color:C.navy}}>
+          Prêt à devenir <span style={{fontStyle:"italic",color:C.accent}}>visible</span>&nbsp;?
+        </h2>
+        <p style={{color:C.textSec,fontSize:15,marginBottom:32,lineHeight:1.7}}>Discutons de votre projet. Premier échange gratuit et sans engagement.</p>
+        <button onClick={()=>go(configRef)} className="bp" style={{padding:"16px 40px",background:C.navy,color:"#fff",border:"none",borderRadius:10,fontFamily:"inherit",fontWeight:600,fontSize:15,cursor:"pointer",display:"inline-flex",alignItems:"center",gap:8}}>
+          Estimer mon projet <ArrowRight size={16}/>
+        </button>
+      </section>
+
+      {/* FOOTER */}
+      <footer style={{padding:`40px 24px ${count>0?"120px":"40px"}`,textAlign:"center",borderTop:`1px solid ${C.borderLight}`,background:C.bg}}>
+        <p style={{color:C.textMuted,fontSize:13}}>© 2026 Rémi — Booster de visibilité — Aix-en-Provence</p>
+        <p style={{color:C.textMuted,fontSize:11,marginTop:6,opacity:.7}}>Tous les prix sont HT · Devis gratuit sur demande</p>
+      </footer>
+    </div>
+  );
+}
