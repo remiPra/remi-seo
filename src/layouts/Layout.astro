@@ -1,23 +1,41 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>Rémi SEO — Développeur web & Référencement à Aix-en-Provence</title>
+		<meta name="description" content="Site web, Google My Business, SEO, réseaux sociaux — je rends votre établissement visible en ligne. Un seul interlocuteur, des résultats mesurables." />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
 	</head>
 	<body>
 		<slot />
 	</body>
 </html>
 
-<style>
-	html,
-	body {
+<style is:global>
+	*, *::before, *::after {
+		box-sizing: border-box;
 		margin: 0;
+		padding: 0;
+	}
+	html {
+		scroll-behavior: smooth;
+	}
+	html, body {
 		width: 100%;
-		height: 100%;
+		min-height: 100%;
+		font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+		color: #1a1a2e;
+		background: #ffffff;
+		-webkit-font-smoothing: antialiased;
+	}
+	::selection {
+		background: #2563eb;
+		color: #fff;
 	}
 </style>
