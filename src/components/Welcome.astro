@@ -2,194 +2,240 @@
 import { Icon } from 'astro-icon/components';
 ---
 
-<!-- NAV -->
-<nav class="nav">
-	<div class="nav-inner">
-		<div class="nav-brand">
-			<div class="nav-logo">R</div>
-			<div>
-				<div class="nav-name">Rémi</div>
-				<div class="nav-tagline">Visibilité digitale</div>
+<!-- SCROLL SNAP CONTAINER -->
+<div class="snap-container">
+
+	<!-- NAV (fixed, outside snap) -->
+	<nav class="nav">
+		<div class="nav-inner">
+			<div class="nav-brand">
+				<div class="nav-logo">R</div>
+				<div>
+					<div class="nav-name">Remi</div>
+					<div class="nav-tagline">Visibilite digitale</div>
+				</div>
 			</div>
+			<a href="/devis" class="nav-cta">Estimer mon projet</a>
 		</div>
-		<a href="#contact" class="nav-cta">Devis gratuit</a>
-	</div>
-</nav>
+	</nav>
 
-<!-- HERO -->
-<section class="hero">
-	<div class="hero-bg-dots"></div>
-	<div class="hero-content">
-		<div class="hero-badge anim-fade">
-			<Icon name="lucide:map-pin" size={14} />
-			Aix-en-Provence
-		</div>
-		<h1 class="hero-title anim-fade anim-d1">
-			Vos clients vous cherchent<br/>sur Google.
-			<span class="hero-accent">Est-ce qu'ils vous trouvent ?</span>
-		</h1>
-		<p class="hero-subtitle anim-fade anim-d2">
-			Site web, fiche Google, SEO, réseaux sociaux — je rends votre établissement impossible à rater. Un seul interlocuteur, des résultats mesurables.
-		</p>
-		<div class="hero-actions anim-fade anim-d3">
-			<a href="#contact" class="btn btn-primary">
-				Estimer mon projet
-				<Icon name="lucide:arrow-right" size={18} />
-			</a>
-			<a href="#services" class="btn btn-outline">Voir les prestations</a>
-		</div>
-		<div class="hero-stats anim-fade anim-d4">
-			<div class="stat">
-				<div class="stat-icon"><Icon name="lucide:layout" size={20} /></div>
-				<div class="stat-value">60+</div>
-				<div class="stat-label">prestations</div>
+	<!-- SECTION 1 : HERO -->
+	<section class="snap-section hero">
+		<div class="parallax-bg hero-bg-dots"></div>
+		<div class="hero-content">
+			<div class="hero-badge anim-fade">
+				<Icon name="lucide:map-pin" size={14} />
+				Aix-en-Provence
 			</div>
-			<div class="stat">
-				<div class="stat-icon"><Icon name="lucide:target" size={20} /></div>
-				<div class="stat-value">29€</div>
-				<div class="stat-label">à partir de / mois</div>
-			</div>
-			<div class="stat">
-				<div class="stat-icon"><Icon name="lucide:clock" size={20} /></div>
-				<div class="stat-value">&lt;24h</div>
-				<div class="stat-label">temps de réponse</div>
-			</div>
-			<div class="stat">
-				<div class="stat-icon"><Icon name="lucide:shield" size={20} /></div>
-				<div class="stat-value">100%</div>
-				<div class="stat-label">prix transparents</div>
-			</div>
-		</div>
-	</div>
-</section>
-
-<!-- SERVICES -->
-<section id="services" class="services">
-	<div class="section-inner">
-		<div class="section-header reveal">
-			<span class="section-label">
-				<Icon name="lucide:sparkles" size={14} />
-				Ce que je fais
-			</span>
-			<h2 class="section-title">Tout pour votre <em>visibilité</em></h2>
-			<p class="section-desc">Des prestations concrètes, à la carte ou en formule.</p>
-		</div>
-
-		<div class="services-grid">
-			<div class="service-card reveal">
-				<div class="service-icon">
-					<Icon name="lucide:map-pin" size={24} />
-				</div>
-				<h3>Google My Business</h3>
-				<p>Création, optimisation et gestion de votre fiche Google. Posts, avis, rapports.</p>
-				<span class="service-price">À partir de 25€/mois</span>
-			</div>
-
-			<div class="service-card reveal">
-				<div class="service-icon">
-					<Icon name="lucide:globe" size={24} />
-				</div>
-				<h3>Site Web</h3>
-				<p>Site vitrine responsive, optimisé SEO. Réservation, commande en ligne, maintenance.</p>
-				<span class="service-price">À partir de 800€</span>
-			</div>
-
-			<div class="service-card reveal">
-				<div class="service-icon">
-					<Icon name="lucide:search" size={24} />
-				</div>
-				<h3>Référencement SEO</h3>
-				<p>Audit technique, optimisation on-page, articles de blog, mots-clés locaux.</p>
-				<span class="service-price">À partir de 15€/mois</span>
-			</div>
-
-			<div class="service-card reveal">
-				<div class="service-icon">
-					<Icon name="lucide:smartphone" size={24} />
-				</div>
-				<h3>Réseaux Sociaux</h3>
-				<p>Instagram, Facebook, TikTok — création de comptes, publications, gestion complète.</p>
-				<span class="service-price">À partir de 49€/mois</span>
-			</div>
-
-			<div class="service-card reveal">
-				<div class="service-icon">
-					<Icon name="lucide:palette" size={24} />
-				</div>
-				<h3>Création Visuelle</h3>
-				<p>Visuels IA réalistes, montage vidéo, templates, menus, flyers.</p>
-				<span class="service-price">À partir de 15€</span>
-			</div>
-
-			<div class="service-card reveal">
-				<div class="service-icon">
-					<Icon name="lucide:star" size={24} />
-				</div>
-				<h3>Avis & E-réputation</h3>
-				<p>QR codes, stratégie de collecte, réponses aux avis, veille réputation.</p>
-				<span class="service-price">À partir de 19€</span>
-			</div>
-		</div>
-	</div>
-</section>
-
-<!-- WHY ME -->
-<section class="trust">
-	<div class="section-inner">
-		<div class="trust-grid">
-			<div class="trust-card reveal">
-				<div class="trust-icon">
-					<Icon name="lucide:sparkles" size={24} />
-				</div>
-				<h3>L'IA comme levier</h3>
-				<p>Rédaction, visuels, analyse — l'intelligence artificielle accélère chaque tâche. Le gain est répercuté sur vos prix.</p>
-			</div>
-			<div class="trust-card reveal">
-				<div class="trust-icon">
-					<Icon name="lucide:user" size={24} />
-				</div>
-				<h3>Un interlocuteur unique</h3>
-				<p>Pas d'agence, pas de commercial. Un seul contact dédié qui connaît votre projet de A à Z.</p>
-			</div>
-			<div class="trust-card reveal">
-				<div class="trust-icon">
-					<Icon name="lucide:zap" size={24} />
-				</div>
-				<h3>Réactivité exemplaire</h3>
-				<p>Réponse en moins de 24h en semaine. Échanges par WhatsApp ou email, comme vous préférez.</p>
-			</div>
-		</div>
-	</div>
-</section>
-
-<!-- CTA -->
-<section id="contact" class="cta-section">
-	<div class="section-inner">
-		<div class="cta-box reveal">
-			<h2>Prêt à devenir <em>visible</em> ?</h2>
-			<p>Discutons de votre projet. Premier échange gratuit et sans engagement.</p>
-			<div class="cta-actions">
-				<a href="mailto:contact@remi-seo.fr" class="btn btn-primary btn-lg">
-					<Icon name="lucide:send" size={18} />
-					Me contacter
+			<h1 class="hero-title anim-fade anim-d1">
+				Vos clients vous cherchent<br/>sur Google.
+				<span class="hero-accent">Est-ce qu'ils vous trouvent ?</span>
+			</h1>
+			<p class="hero-subtitle anim-fade anim-d2">
+				Site web, fiche Google, SEO, reseaux sociaux — je rends votre etablissement impossible a rater.
+			</p>
+			<div class="hero-actions anim-fade anim-d3">
+				<a href="#services" class="btn btn-primary">
+					Voir les prestations
+					<Icon name="lucide:arrow-right" size={18} />
 				</a>
-				<a href="tel:+33600000000" class="btn btn-outline btn-lg">
-					<Icon name="lucide:phone" size={18} />
-					Appeler
-				</a>
+				<a href="/devis" class="btn btn-outline">Estimer mon projet</a>
+			</div>
+			<div class="scroll-hint anim-fade anim-d4">
+				<Icon name="lucide:chevron-down" size={20} />
 			</div>
 		</div>
-	</div>
-</section>
+	</section>
 
-<!-- FOOTER -->
-<footer class="footer">
-	<p>© 2026 Rémi — Développeur web & Référencement — Aix-en-Provence</p>
-	<p class="footer-sub">Tous les prix sont HT · Devis gratuit sur demande</p>
-</footer>
+	<!-- SECTION 2a : STATS — partie 1 -->
+	<section class="snap-section stats-section">
+		<div class="parallax-bg parallax-gradient-1"></div>
+		<div class="section-content stats-layout">
+			<div class="section-header reveal">
+				<span class="section-label">
+					<Icon name="lucide:bar-chart-3" size={14} />
+					En chiffres
+				</span>
+				<h2 class="section-title">Un accompagnement <em>complet</em></h2>
+			</div>
+			<div class="stats-duo">
+				<div class="stat-card reveal">
+					<div class="stat-icon"><Icon name="lucide:layout" size={22} /></div>
+					<div class="stat-value">60+</div>
+					<div class="stat-label">prestations</div>
+				</div>
+				<div class="stat-card reveal">
+					<div class="stat-icon"><Icon name="lucide:target" size={22} /></div>
+					<div class="stat-value">29&euro;</div>
+					<div class="stat-label">a partir de / mois</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
-<!-- Intersection Observer for reveal animations (minimal JS) -->
+	<!-- SECTION 2b : STATS — partie 2 -->
+	<section class="snap-section stats-section stats-alt">
+		<div class="parallax-bg parallax-gradient-1b"></div>
+		<div class="section-content stats-layout">
+			<div class="stats-duo">
+				<div class="stat-card reveal">
+					<div class="stat-icon"><Icon name="lucide:clock" size={22} /></div>
+					<div class="stat-value">&lt;24h</div>
+					<div class="stat-label">temps de reponse</div>
+				</div>
+				<div class="stat-card reveal">
+					<div class="stat-icon"><Icon name="lucide:shield" size={22} /></div>
+					<div class="stat-value">100%</div>
+					<div class="stat-label">prix transparents</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- SECTION 3a : SERVICES — Presence en ligne -->
+	<section id="services" class="snap-section services-section">
+		<div class="parallax-bg parallax-gradient-2"></div>
+		<div class="section-content services-layout">
+			<div class="section-header reveal">
+				<span class="section-label">
+					<Icon name="lucide:sparkles" size={14} />
+					Ce que je fais
+				</span>
+				<h2 class="section-title">Votre <em>presence</em> en ligne</h2>
+			</div>
+			<div class="services-duo">
+				<div class="service-card reveal">
+					<div class="service-icon"><Icon name="lucide:map-pin" size={22} /></div>
+					<h3>Google My Business</h3>
+					<p>Creation, optimisation et gestion de votre fiche Google. Posts, avis, rapports.</p>
+					<span class="service-price">Des 25&euro;/mois</span>
+				</div>
+				<div class="service-card reveal">
+					<div class="service-icon"><Icon name="lucide:globe" size={22} /></div>
+					<h3>Site Web</h3>
+					<p>Site vitrine responsive, optimise SEO. Reservation, commande en ligne, maintenance.</p>
+					<span class="service-price">Des 800&euro;</span>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- SECTION 3b : SERVICES — Visibilite -->
+	<section class="snap-section services-section services-alt">
+		<div class="parallax-bg parallax-gradient-2b"></div>
+		<div class="section-content services-layout">
+			<div class="section-header reveal">
+				<span class="section-label">
+					<Icon name="lucide:trending-up" size={14} />
+					Croissance
+				</span>
+				<h2 class="section-title">Plus de <em>visibilite</em></h2>
+			</div>
+			<div class="services-duo">
+				<div class="service-card reveal">
+					<div class="service-icon"><Icon name="lucide:search" size={22} /></div>
+					<h3>Referencement SEO</h3>
+					<p>Audit technique, optimisation on-page, articles de blog, mots-cles locaux.</p>
+					<span class="service-price">Des 15&euro;/mois</span>
+				</div>
+				<div class="service-card reveal">
+					<div class="service-icon"><Icon name="lucide:smartphone" size={22} /></div>
+					<h3>Reseaux Sociaux</h3>
+					<p>Instagram, Facebook, TikTok — creation de comptes, publications, gestion complete.</p>
+					<span class="service-price">Des 49&euro;/mois</span>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- SECTION 3c : SERVICES — Creation & reputation -->
+	<section class="snap-section services-section">
+		<div class="parallax-bg parallax-gradient-2c"></div>
+		<div class="section-content services-layout">
+			<div class="section-header reveal">
+				<span class="section-label">
+					<Icon name="lucide:heart" size={14} />
+					Image de marque
+				</span>
+				<h2 class="section-title">Votre <em>image</em> soignee</h2>
+			</div>
+			<div class="services-duo">
+				<div class="service-card reveal">
+					<div class="service-icon"><Icon name="lucide:palette" size={22} /></div>
+					<h3>Creation Visuelle</h3>
+					<p>Visuels IA realistes, montage video, templates, menus, flyers.</p>
+					<span class="service-price">Des 15&euro;</span>
+				</div>
+				<div class="service-card reveal">
+					<div class="service-icon"><Icon name="lucide:star" size={22} /></div>
+					<h3>Avis & E-reputation</h3>
+					<p>QR codes, strategie de collecte, reponses aux avis, veille reputation.</p>
+					<span class="service-price">Des 19&euro;</span>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- SECTION 4a : TRUST — IA -->
+	<section class="snap-section trust-solo-section">
+		<div class="parallax-bg parallax-gradient-3"></div>
+		<div class="trust-solo reveal">
+			<div class="trust-solo-icon"><Icon name="lucide:sparkles" size={32} /></div>
+			<h3 class="trust-solo-title">L'IA comme levier</h3>
+			<p class="trust-solo-desc">Redaction, visuels, analyse — l'intelligence artificielle accelere chaque tache. Le gain est repercute sur vos prix.</p>
+		</div>
+	</section>
+
+	<!-- SECTION 4b : TRUST — Interlocuteur -->
+	<section class="snap-section trust-solo-section trust-solo-alt">
+		<div class="parallax-bg parallax-gradient-3b"></div>
+		<div class="trust-solo reveal">
+			<div class="trust-solo-icon"><Icon name="lucide:user" size={32} /></div>
+			<h3 class="trust-solo-title">Un interlocuteur unique</h3>
+			<p class="trust-solo-desc">Pas d'agence, pas de commercial. Un seul contact dedie qui connait votre projet de A a Z.</p>
+		</div>
+	</section>
+
+	<!-- SECTION 4c : TRUST — Reactivite -->
+	<section class="snap-section trust-solo-section">
+		<div class="parallax-bg parallax-gradient-3c"></div>
+		<div class="trust-solo reveal">
+			<div class="trust-solo-icon"><Icon name="lucide:zap" size={32} /></div>
+			<h3 class="trust-solo-title">Reactivite exemplaire</h3>
+			<p class="trust-solo-desc">Reponse en moins de 24h en semaine. Echanges par WhatsApp ou email, comme vous preferez.</p>
+		</div>
+	</section>
+
+	<!-- SECTION 5 : CTA -->
+	<section id="contact" class="snap-section cta-section">
+		<div class="parallax-bg parallax-gradient-4"></div>
+		<div class="cta-center">
+			<div class="cta-box reveal">
+				<h2>Pret a devenir <em>visible</em> ?</h2>
+				<p>Discutons de votre projet. Premier echange gratuit et sans engagement.</p>
+				<div class="cta-actions">
+					<a href="mailto:contact@remi-seo.fr" class="btn btn-primary btn-lg">
+						<Icon name="lucide:send" size={18} />
+						Me contacter
+					</a>
+					<a href="tel:+33600000000" class="btn btn-outline btn-lg">
+						<Icon name="lucide:phone" size={18} />
+						Appeler
+					</a>
+				</div>
+			</div>
+		</div>
+		<footer class="footer">
+			<p>&copy; 2026 Remi — Developpeur web & Referencement — Aix-en-Provence</p>
+			<p class="footer-sub">Tous les prix sont HT &middot; Devis gratuit sur demande</p>
+		</footer>
+	</section>
+
+</div>
+
+<!-- Intersection Observer for reveal + parallax -->
 <script>
+	// Reveal on scroll
 	const observer = new IntersectionObserver(
 		(entries) => {
 			entries.forEach((entry) => {
@@ -199,9 +245,34 @@ import { Icon } from 'astro-icon/components';
 				}
 			});
 		},
-		{ threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+		{ threshold: 0.15, rootMargin: '0px 0px -20px 0px' }
 	);
 	document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+	// Parallax on scroll (transform-based, works on mobile)
+	const container = document.querySelector('.snap-container');
+	if (container) {
+		container.addEventListener('scroll', () => {
+			const scrollTop = container.scrollTop;
+			document.querySelectorAll('.parallax-bg').forEach((bg) => {
+				const section = bg.parentElement;
+				if (section) {
+					const offset = section.offsetTop;
+					const speed = 0.35;
+					const yPos = (scrollTop - offset) * speed;
+					(bg as HTMLElement).style.transform = `translate3d(0, ${yPos}px, 0)`;
+				}
+			});
+		}, { passive: true });
+	}
+
+	// Scroll hint bounce
+	const hint = document.querySelector('.scroll-hint');
+	if (hint) {
+		setTimeout(() => {
+			hint.classList.add('bouncing');
+		}, 2000);
+	}
 </script>
 
 <style>
@@ -221,41 +292,122 @@ import { Icon } from 'astro-icon/components';
 		--radius: 12px;
 	}
 
+	/* ─── SCROLL SNAP CONTAINER ─── */
+	.snap-container {
+		height: 100vh;
+		overflow-y: scroll;
+		scroll-snap-type: y mandatory;
+		scroll-behavior: smooth;
+	}
+
+	.snap-section {
+		height: 100vh;
+		scroll-snap-align: start;
+		scroll-snap-stop: always;
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		overflow: hidden;
+	}
+
+	/* ─── PARALLAX BACKGROUNDS ─── */
+	.parallax-bg {
+		position: absolute;
+		inset: -20% 0;
+		pointer-events: none;
+		will-change: transform;
+		z-index: 0;
+	}
+
+	.hero-bg-dots {
+		opacity: 0.018;
+		background-image: radial-gradient(circle at 1px 1px, var(--navy) 1px, transparent 0);
+		background-size: 40px 40px;
+	}
+
+	.parallax-gradient-1 {
+		background: radial-gradient(ellipse at 30% 20%, rgba(37, 99, 235, 0.06) 0%, transparent 60%),
+					radial-gradient(ellipse at 70% 80%, rgba(124, 58, 237, 0.04) 0%, transparent 60%);
+	}
+
+	.parallax-gradient-2 {
+		background: radial-gradient(ellipse at 70% 30%, rgba(37, 99, 235, 0.05) 0%, transparent 55%),
+					radial-gradient(ellipse at 20% 70%, rgba(16, 185, 129, 0.04) 0%, transparent 55%);
+	}
+	.parallax-gradient-2b {
+		background: radial-gradient(ellipse at 30% 40%, rgba(124, 58, 237, 0.05) 0%, transparent 55%),
+					radial-gradient(ellipse at 80% 70%, rgba(37, 99, 235, 0.04) 0%, transparent 50%);
+	}
+	.parallax-gradient-2c {
+		background: radial-gradient(ellipse at 60% 25%, rgba(16, 185, 129, 0.05) 0%, transparent 55%),
+					radial-gradient(ellipse at 25% 75%, rgba(37, 99, 235, 0.04) 0%, transparent 50%);
+	}
+
+	.parallax-gradient-1b {
+		background: radial-gradient(ellipse at 60% 60%, rgba(37, 99, 235, 0.05) 0%, transparent 55%),
+					radial-gradient(ellipse at 20% 30%, rgba(124, 58, 237, 0.03) 0%, transparent 50%);
+	}
+
+	.parallax-gradient-3 {
+		background: radial-gradient(ellipse at 50% 20%, rgba(124, 58, 237, 0.06) 0%, transparent 60%),
+					radial-gradient(ellipse at 30% 80%, rgba(37, 99, 235, 0.04) 0%, transparent 50%);
+	}
+	.parallax-gradient-3b {
+		background: radial-gradient(ellipse at 70% 50%, rgba(37, 99, 235, 0.06) 0%, transparent 55%),
+					radial-gradient(ellipse at 20% 30%, rgba(16, 185, 129, 0.04) 0%, transparent 50%);
+	}
+	.parallax-gradient-3c {
+		background: radial-gradient(ellipse at 30% 40%, rgba(16, 185, 129, 0.05) 0%, transparent 55%),
+					radial-gradient(ellipse at 80% 70%, rgba(124, 58, 237, 0.04) 0%, transparent 50%);
+	}
+
+	.parallax-gradient-4 {
+		background: radial-gradient(ellipse at 60% 40%, rgba(37, 99, 235, 0.08) 0%, transparent 50%);
+	}
+
 	/* ─── ANIMATIONS ─── */
 	@keyframes fadeUp {
-		from { opacity: 0; transform: translateY(28px); }
+		from { opacity: 0; transform: translateY(36px); }
 		to { opacity: 1; transform: translateY(0); }
 	}
-
-	.anim-fade {
-		animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+	@keyframes bounce {
+		0%, 100% { transform: translateY(0); }
+		50% { transform: translateY(8px); }
 	}
-	.anim-d1 { animation-delay: 0.1s; opacity: 0; }
-	.anim-d2 { animation-delay: 0.2s; opacity: 0; }
-	.anim-d3 { animation-delay: 0.3s; opacity: 0; }
-	.anim-d4 { animation-delay: 0.45s; opacity: 0; }
 
-	/* Reveal on scroll */
+	.anim-fade { animation: fadeUp 2.4s cubic-bezier(0.12, 1, 0.2, 1) forwards; }
+	.anim-d1 { animation-delay: 0.6s; opacity: 0; }
+	.anim-d2 { animation-delay: 1.4s; opacity: 0; }
+	.anim-d3 { animation-delay: 2.2s; opacity: 0; }
+	.anim-d4 { animation-delay: 3.0s; opacity: 0; }
+
 	.reveal {
 		opacity: 0;
-		transform: translateY(24px);
-		transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
-					transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+		transform: translateY(30px);
+		transition: opacity 2s cubic-bezier(0.12, 1, 0.2, 1),
+					transform 2s cubic-bezier(0.12, 1, 0.2, 1);
 	}
 	.reveal.revealed {
 		opacity: 1;
 		transform: translateY(0);
 	}
 
-	/* Stagger children */
-	.services-grid .reveal:nth-child(2) { transition-delay: 0.08s; }
-	.services-grid .reveal:nth-child(3) { transition-delay: 0.16s; }
-	.services-grid .reveal:nth-child(4) { transition-delay: 0.24s; }
-	.services-grid .reveal:nth-child(5) { transition-delay: 0.32s; }
-	.services-grid .reveal:nth-child(6) { transition-delay: 0.4s; }
+	/* Stagger — cascade lente */
+	.services-duo .reveal:nth-child(1) { transition-delay: 0.3s; }
+	.services-duo .reveal:nth-child(2) { transition-delay: 0.9s; }
+	.stats-duo .reveal:nth-child(1) { transition-delay: 0.3s; }
+	.stats-duo .reveal:nth-child(2) { transition-delay: 0.8s; }
 
-	.trust-grid .reveal:nth-child(2) { transition-delay: 0.1s; }
-	.trust-grid .reveal:nth-child(3) { transition-delay: 0.2s; }
+	/* ─── SCROLL HINT ─── */
+	.scroll-hint {
+		margin-top: 32px;
+		color: var(--text-muted);
+		opacity: 0.5;
+	}
+	.scroll-hint.bouncing {
+		animation: bounce 1.5s ease-in-out infinite;
+	}
 
 	/* ─── NAV ─── */
 	.nav {
@@ -264,7 +416,7 @@ import { Icon } from 'astro-icon/components';
 		left: 0;
 		right: 0;
 		z-index: 100;
-		background: rgba(255, 255, 255, 0.92);
+		background: rgba(255, 255, 255, 0.88);
 		backdrop-filter: blur(20px);
 		border-bottom: 1px solid var(--border-light);
 	}
@@ -272,7 +424,7 @@ import { Icon } from 'astro-icon/components';
 		max-width: 1100px;
 		margin: 0 auto;
 		padding: 0 24px;
-		height: 64px;
+		height: 60px;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
@@ -283,16 +435,16 @@ import { Icon } from 'astro-icon/components';
 		gap: 12px;
 	}
 	.nav-logo {
-		width: 36px;
-		height: 36px;
-		border-radius: 10px;
+		width: 34px;
+		height: 34px;
+		border-radius: 9px;
 		background: var(--navy);
 		color: #fff;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		font-weight: 800;
-		font-size: 16px;
+		font-size: 15px;
 	}
 	.nav-name {
 		font-weight: 700;
@@ -321,35 +473,26 @@ import { Icon } from 'astro-icon/components';
 
 	/* ─── HERO ─── */
 	.hero {
-		min-height: 100vh;
-		display: flex;
-		align-items: center;
-		justify-content: center;
+		background: #fff;
 		text-align: center;
-		padding: 120px 24px 80px;
-		position: relative;
-		overflow: hidden;
-	}
-	.hero-bg-dots {
-		position: absolute;
-		inset: 0;
-		opacity: 0.018;
-		pointer-events: none;
-		background-image: radial-gradient(circle at 1px 1px, var(--navy) 1px, transparent 0);
-		background-size: 40px 40px;
+		padding: 60px 24px 40px;
 	}
 	.hero-content {
 		position: relative;
-		max-width: 780px;
+		z-index: 1;
+		max-width: 700px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 	}
 	.hero-badge {
 		display: inline-flex;
 		align-items: center;
 		gap: 8px;
-		padding: 8px 18px;
+		padding: 7px 16px;
 		border-radius: 100px;
 		border: 1px solid var(--border);
-		margin-bottom: 36px;
+		margin-bottom: 28px;
 		font-size: 13px;
 		color: var(--text-sec);
 		font-weight: 500;
@@ -358,12 +501,13 @@ import { Icon } from 'astro-icon/components';
 		color: var(--accent);
 	}
 	.hero-title {
-		font-size: clamp(2.2rem, 5.5vw, 3.8rem);
-		font-weight: 800;
-		line-height: 1.1;
-		letter-spacing: -0.03em;
+		font-family: 'Playfair Display', Georgia, serif;
+		font-size: clamp(1.8rem, 5vw, 3.4rem);
+		font-weight: 500;
+		line-height: 1.15;
+		letter-spacing: -0.02em;
 		color: var(--navy);
-		margin-bottom: 24px;
+		margin-bottom: 20px;
 	}
 	.hero-accent {
 		display: block;
@@ -373,12 +517,11 @@ import { Icon } from 'astro-icon/components';
 		background-clip: text;
 	}
 	.hero-subtitle {
-		font-size: clamp(1rem, 2vw, 1.12rem);
+		font-size: clamp(0.9rem, 1.8vw, 1.05rem);
 		color: var(--text-sec);
-		max-width: 540px;
-		margin: 0 auto 40px;
-		line-height: 1.75;
-		font-weight: 400;
+		max-width: 480px;
+		margin: 0 auto 32px;
+		line-height: 1.7;
 	}
 	.hero-actions {
 		display: flex;
@@ -386,37 +529,49 @@ import { Icon } from 'astro-icon/components';
 		justify-content: center;
 		flex-wrap: wrap;
 	}
-	.hero-stats {
-		display: flex;
-		gap: 48px;
-		margin-top: 72px;
-		justify-content: center;
-		flex-wrap: wrap;
+
+	/* ─── SECTION CONTENT ─── */
+	.section-content {
+		position: relative;
+		z-index: 1;
+		max-width: 1100px;
+		width: 100%;
+		padding: 0 24px;
+		max-height: 100vh;
+		overflow-y: auto;
+		-ms-overflow-style: none;
+		scrollbar-width: none;
 	}
-	.stat {
+	.section-content::-webkit-scrollbar {
+		display: none;
+	}
+
+	.section-header {
 		text-align: center;
+		margin-bottom: 40px;
 	}
-	.stat-icon {
-		width: 44px;
-		height: 44px;
-		border-radius: 12px;
-		background: var(--accent-soft);
-		display: flex;
+	.section-label {
+		display: inline-flex;
 		align-items: center;
-		justify-content: center;
-		margin: 0 auto 10px;
-		color: var(--accent);
-	}
-	.stat-value {
-		font-size: 24px;
-		font-weight: 800;
-		color: var(--navy);
-		letter-spacing: -0.02em;
-	}
-	.stat-label {
+		gap: 6px;
 		font-size: 12px;
-		color: var(--text-muted);
-		margin-top: 2px;
+		font-weight: 600;
+		color: var(--accent);
+		text-transform: uppercase;
+		letter-spacing: 0.12em;
+		margin-bottom: 12px;
+	}
+	.section-title {
+		font-family: 'Playfair Display', Georgia, serif;
+		font-size: clamp(1.4rem, 3.5vw, 2.2rem);
+		font-weight: 500;
+		letter-spacing: -0.02em;
+		color: var(--navy);
+		margin-bottom: 8px;
+	}
+	.section-title em {
+		font-style: italic;
+		color: var(--accent);
 	}
 
 	/* ─── BUTTONS ─── */
@@ -424,10 +579,10 @@ import { Icon } from 'astro-icon/components';
 		display: inline-flex;
 		align-items: center;
 		gap: 8px;
-		padding: 14px 32px;
+		padding: 13px 28px;
 		border-radius: 10px;
 		font-weight: 600;
-		font-size: 15px;
+		font-size: 14px;
 		text-decoration: none;
 		transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
 		cursor: pointer;
@@ -454,119 +609,102 @@ import { Icon } from 'astro-icon/components';
 		transform: translateY(-2px);
 	}
 	.btn-lg {
-		padding: 16px 36px;
-		font-size: 16px;
-	}
-
-	/* ─── SECTIONS ─── */
-	.section-inner {
-		max-width: 1100px;
-		margin: 0 auto;
-		padding: 0 24px;
-	}
-	.section-header {
-		text-align: center;
-		margin-bottom: 56px;
-	}
-	.section-label {
-		display: inline-flex;
-		align-items: center;
-		gap: 6px;
-		font-size: 12px;
-		font-weight: 600;
-		color: var(--accent);
-		text-transform: uppercase;
-		letter-spacing: 0.12em;
-		margin-bottom: 14px;
-	}
-	.section-title {
-		font-size: clamp(1.6rem, 4vw, 2.4rem);
-		font-weight: 800;
-		letter-spacing: -0.02em;
-		color: var(--navy);
-		margin-bottom: 12px;
-	}
-	.section-title em {
-		font-style: italic;
-		color: var(--accent);
-	}
-	.section-desc {
-		color: var(--text-sec);
+		padding: 15px 34px;
 		font-size: 15px;
-		max-width: 460px;
-		margin: 0 auto;
-		line-height: 1.7;
 	}
 
-	/* ─── SERVICES ─── */
-	.services {
-		padding: 100px 0;
+	/* ─── STATS ─── */
+	.stats-section {
 		background: var(--bg-soft);
 	}
-	.services-grid {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		gap: 20px;
-	}
-	.service-card {
+	.stats-alt {
 		background: #fff;
+	}
+	.stats-layout {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		height: 100%;
+	}
+	.stats-duo {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 24px;
+		max-width: 560px;
+		width: 100%;
+	}
+	.stat-card {
+		text-align: center;
+		background: #fff;
+		border-radius: 20px;
+		padding: 40px 24px;
 		border: 1px solid var(--border-light);
+	}
+	.stats-alt .stat-card {
+		background: var(--bg-soft);
+	}
+	.stat-icon {
+		width: 56px;
+		height: 56px;
 		border-radius: 16px;
-		padding: 32px 28px;
-		transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-	}
-	.service-card:hover {
-		transform: translateY(-4px);
-		box-shadow: 0 16px 48px rgba(15, 27, 45, 0.06);
-		border-color: rgba(37, 99, 235, 0.15);
-	}
-	.service-icon {
-		width: 48px;
-		height: 48px;
-		border-radius: 12px;
 		background: var(--accent-soft);
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		margin-bottom: 20px;
+		margin: 0 auto 16px;
 		color: var(--accent);
 	}
-	.service-card h3 {
-		font-size: 17px;
-		font-weight: 700;
-		color: var(--navy);
-		margin-bottom: 10px;
-		letter-spacing: -0.01em;
-	}
-	.service-card p {
-		font-size: 14px;
-		color: var(--text-sec);
-		line-height: 1.65;
-		margin-bottom: 16px;
-	}
-	.service-price {
-		font-size: 13px;
+	.stat-value {
+		font-family: 'Playfair Display', Georgia, serif;
+		font-size: 36px;
 		font-weight: 600;
-		color: var(--accent);
+		color: var(--navy);
+		letter-spacing: -0.02em;
+	}
+	.stat-label {
+		font-size: 13px;
+		color: var(--text-muted);
+		margin-top: 6px;
 	}
 
-	/* ─── TRUST ─── */
-	.trust {
-		padding: 100px 0;
+	/* ─── SERVICES ─── */
+	.services-section {
 		background: #fff;
 	}
-	.trust-grid {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		gap: 24px;
+	.services-alt {
+		background: var(--bg-soft);
 	}
-	.trust-card {
-		padding: 36px 28px;
-		border-radius: 16px;
+	.services-layout {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		height: 100%;
+	}
+	.services-duo {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 24px;
+		max-width: 780px;
+		width: 100%;
+	}
+	.service-card {
 		background: var(--bg-soft);
 		border: 1px solid var(--border-light);
+		border-radius: 18px;
+		padding: 36px 28px;
+		transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 	}
-	.trust-icon {
+	.services-alt .service-card {
+		background: #fff;
+	}
+	.service-card:hover {
+		transform: translateY(-4px);
+		box-shadow: 0 16px 48px rgba(15, 27, 45, 0.07);
+		border-color: rgba(37, 99, 235, 0.18);
+	}
+	.service-icon {
 		width: 52px;
 		height: 52px;
 		border-radius: 14px;
@@ -574,34 +712,92 @@ import { Icon } from 'astro-icon/components';
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		margin-bottom: 20px;
+		margin-bottom: 18px;
 		color: var(--accent);
 	}
-	.trust-card h3 {
-		font-size: 17px;
+	.service-card h3 {
+		font-size: 18px;
 		font-weight: 700;
 		color: var(--navy);
-		margin-bottom: 10px;
+		margin-bottom: 8px;
+		letter-spacing: -0.01em;
 	}
-	.trust-card p {
+	.service-card p {
 		font-size: 14px;
 		color: var(--text-sec);
-		line-height: 1.7;
+		line-height: 1.65;
+		margin-bottom: 14px;
+	}
+	.service-price {
+		font-size: 13px;
+		font-weight: 600;
+		color: var(--accent);
+	}
+
+	/* ─── TRUST SOLO ─── */
+	.trust-solo-section {
+		background: var(--bg-soft);
+	}
+	.trust-solo-alt {
+		background: #fff;
+	}
+	.trust-solo {
+		position: relative;
+		z-index: 1;
+		text-align: center;
+		max-width: 520px;
+		padding: 0 24px;
+	}
+	.trust-solo-icon {
+		width: 72px;
+		height: 72px;
+		border-radius: 20px;
+		background: var(--accent-soft);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin: 0 auto 28px;
+		color: var(--accent);
+	}
+	.trust-solo-title {
+		font-family: 'Playfair Display', Georgia, serif;
+		font-size: clamp(1.5rem, 4vw, 2.2rem);
+		font-weight: 500;
+		color: var(--navy);
+		margin-bottom: 16px;
+		letter-spacing: -0.02em;
+	}
+	.trust-solo-desc {
+		font-size: clamp(0.95rem, 2vw, 1.1rem);
+		color: var(--text-sec);
+		line-height: 1.8;
 	}
 
 	/* ─── CTA ─── */
 	.cta-section {
-		padding: 100px 0;
-		background: var(--bg-soft);
+		background: var(--navy);
+		flex-direction: column;
+	}
+	.cta-center {
+		position: relative;
+		z-index: 1;
+		flex: 1;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		padding: 0 24px;
 	}
 	.cta-box {
 		text-align: center;
-		padding: 64px 40px;
+		padding: 56px 36px;
 		border-radius: 24px;
-		background: var(--navy);
-		color: #fff;
+		background: rgba(255, 255, 255, 0.05);
+		border: 1px solid rgba(255, 255, 255, 0.08);
 		position: relative;
 		overflow: hidden;
+		max-width: 680px;
+		width: 100%;
 	}
 	.cta-box::before {
 		content: '';
@@ -611,13 +807,15 @@ import { Icon } from 'astro-icon/components';
 		width: 400px;
 		height: 400px;
 		border-radius: 50%;
-		background: radial-gradient(circle, rgba(37, 99, 235, 0.15), transparent 70%);
+		background: radial-gradient(circle, rgba(37, 99, 235, 0.2), transparent 70%);
 		pointer-events: none;
 	}
 	.cta-box h2 {
-		font-size: clamp(1.5rem, 3.5vw, 2.2rem);
-		font-weight: 800;
-		margin-bottom: 14px;
+		font-family: 'Playfair Display', Georgia, serif;
+		font-size: clamp(1.4rem, 3.5vw, 2rem);
+		font-weight: 500;
+		margin-bottom: 12px;
+		color: #fff;
 		position: relative;
 	}
 	.cta-box h2 em {
@@ -625,15 +823,15 @@ import { Icon } from 'astro-icon/components';
 		color: #60a5fa;
 	}
 	.cta-box p {
-		color: rgba(255, 255, 255, 0.65);
-		font-size: 16px;
-		margin-bottom: 36px;
+		color: rgba(255, 255, 255, 0.6);
+		font-size: 15px;
+		margin-bottom: 32px;
 		line-height: 1.7;
 		position: relative;
 	}
 	.cta-actions {
 		display: flex;
-		gap: 14px;
+		gap: 12px;
 		justify-content: center;
 		flex-wrap: wrap;
 		position: relative;
@@ -658,36 +856,161 @@ import { Icon } from 'astro-icon/components';
 
 	/* ─── FOOTER ─── */
 	.footer {
-		padding: 40px 24px;
+		position: relative;
+		z-index: 1;
+		padding: 20px 24px;
 		text-align: center;
-		border-top: 1px solid var(--border-light);
+		flex-shrink: 0;
 	}
 	.footer p {
-		color: var(--text-muted);
-		font-size: 13px;
+		color: rgba(255, 255, 255, 0.35);
+		font-size: 12px;
 	}
 	.footer-sub {
-		margin-top: 6px;
+		margin-top: 4px;
 		opacity: 0.7;
 		font-size: 11px !important;
 	}
 
 	/* ─── RESPONSIVE ─── */
+
+	/* Tablet */
 	@media (max-width: 900px) {
-		.services-grid {
-			grid-template-columns: repeat(2, 1fr);
+	}
+
+	/* Mobile - everything fits in viewport */
+	@media (max-width: 640px) {
+		.snap-section {
+			padding: 60px 0 20px;
+		}
+
+		.hero {
+			padding: 50px 16px 20px;
+		}
+		.hero-title {
+			font-size: clamp(1.5rem, 7vw, 2rem);
+			margin-bottom: 14px;
+		}
+		.hero-subtitle {
+			font-size: 0.85rem;
+			margin-bottom: 24px;
+			line-height: 1.6;
+		}
+		.hero-badge {
+			margin-bottom: 20px;
+			font-size: 12px;
+			padding: 6px 14px;
+		}
+		.hero-actions {
+			gap: 8px;
+		}
+		.btn {
+			padding: 11px 22px;
+			font-size: 13px;
+		}
+		.btn-lg {
+			padding: 13px 26px;
+			font-size: 14px;
+		}
+		.scroll-hint {
+			margin-top: 20px;
+		}
+
+		.section-content {
+			padding: 0 16px;
+		}
+		.section-header {
+			margin-bottom: 24px;
+		}
+		.section-title {
+			font-size: clamp(1.2rem, 5vw, 1.6rem);
+		}
+
+		/* Stats duo compact */
+		.stats-duo {
+			gap: 14px;
+		}
+		.stat-card {
+			padding: 28px 16px;
+		}
+		.stat-icon {
+			width: 46px;
+			height: 46px;
+		}
+		.stat-value {
+			font-size: 28px;
+		}
+
+		/* Services duo: stack on mobile */
+		.services-duo {
+			grid-template-columns: 1fr;
+			gap: 14px;
+			max-width: 100%;
+		}
+		.service-card {
+			padding: 22px 18px;
+			display: flex;
+			gap: 14px;
+			align-items: flex-start;
+		}
+		.service-icon {
+			width: 42px;
+			height: 42px;
+			min-width: 42px;
+			margin-bottom: 0;
+		}
+		.service-card h3 {
+			font-size: 15px;
+			margin-bottom: 4px;
+		}
+		.service-card p {
+			font-size: 12px;
+			line-height: 1.5;
+			margin-bottom: 6px;
+		}
+		.service-price {
+			font-size: 12px;
+		}
+
+		/* Trust solo mobile */
+		.trust-solo-icon {
+			width: 56px;
+			height: 56px;
+			margin-bottom: 20px;
+		}
+		.trust-solo-title {
+			font-size: 1.4rem;
+		}
+		.trust-solo-desc {
+			font-size: 0.9rem;
+		}
+
+		/* CTA */
+		.cta-box {
+			padding: 36px 20px;
+		}
+		.cta-box h2 {
+			font-size: 1.3rem;
+		}
+		.cta-box p {
+			font-size: 13px;
+			margin-bottom: 24px;
 		}
 	}
-	@media (max-width: 640px) {
-		.services-grid,
-		.trust-grid {
-			grid-template-columns: 1fr;
+
+	/* Very small phones (iPhone SE, etc) */
+	@media (max-width: 380px) {
+		.hero-title {
+			font-size: 1.4rem;
 		}
-		.hero-stats {
-			gap: 28px;
+		.hero-subtitle {
+			font-size: 0.8rem;
 		}
-		.cta-box {
-			padding: 48px 24px;
+		.service-card p {
+			display: none;
+		}
+		.stat-value {
+			font-size: 20px;
 		}
 	}
 </style>

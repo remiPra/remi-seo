@@ -1,0 +1,23 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Estimateur from '../components/Estimateur.jsx';
+---
+
+<Layout>
+	<Estimateur client:load />
+</Layout>
+
+<style is:global>
+	html, body {
+		overflow: auto !important;
+		height: auto !important;
+	}
+	input:focus {
+		outline: none;
+		border-color: #2563eb !important;
+		box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.07);
+	}
+	button:hover {
+		filter: brightness(0.97);
+	}
+</style>
