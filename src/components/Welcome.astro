@@ -63,14 +63,17 @@ import { Icon } from 'astro-icon/components';
 				</span>
 				<h2 class="section-title">Un accompagnement <em>complet</em></h2>
 			</div>
+			<div class="img-placeholder reveal">
+				<span>IMAGE 1 — Tableau de bord Google My Business avec courbes de progression vertes, statistiques de visites et clics sur un ecran d'ordinateur moderne</span>
+			</div>
 			<div class="stats-duo">
 				<div class="stat-card reveal">
-					<div class="stat-icon"><Icon name="lucide:layout" size={22} /></div>
+					<div class="stat-icon"><Icon name="lucide:layout" size={24} /></div>
 					<div class="stat-value">60+</div>
-					<div class="stat-label">prestations</div>
+					<div class="stat-label">prestations disponibles</div>
 				</div>
 				<div class="stat-card reveal">
-					<div class="stat-icon"><Icon name="lucide:target" size={22} /></div>
+					<div class="stat-icon"><Icon name="lucide:target" size={24} /></div>
 					<div class="stat-value">29&euro;</div>
 					<div class="stat-label">a partir de / mois</div>
 				</div>
@@ -82,18 +85,25 @@ import { Icon } from 'astro-icon/components';
 	<section class="snap-section stats-section stats-alt">
 		<div class="parallax-bg parallax-gradient-1b"></div>
 		<div class="section-content stats-layout">
+			<div class="img-placeholder reveal">
+				<span>IMAGE 2 — Conversation WhatsApp professionnelle sur telephone, reponse rapide avec un message de confirmation et un emoji pouce</span>
+			</div>
 			<div class="stats-duo">
 				<div class="stat-card reveal">
-					<div class="stat-icon"><Icon name="lucide:clock" size={22} /></div>
+					<div class="stat-icon"><Icon name="lucide:clock" size={24} /></div>
 					<div class="stat-value">&lt;24h</div>
-					<div class="stat-label">temps de reponse</div>
+					<div class="stat-label">temps de reponse garanti</div>
 				</div>
 				<div class="stat-card reveal">
-					<div class="stat-icon"><Icon name="lucide:shield" size={22} /></div>
+					<div class="stat-icon"><Icon name="lucide:shield" size={24} /></div>
 					<div class="stat-value">100%</div>
-					<div class="stat-label">prix transparents</div>
+					<div class="stat-label">prix transparents, sans surprise</div>
 				</div>
 			</div>
+			<a href="/devis" class="section-cta reveal">
+				<Icon name="lucide:calculator" size={16} />
+				Estimer mon projet gratuitement
+			</a>
 		</div>
 	</section>
 
@@ -108,20 +118,31 @@ import { Icon } from 'astro-icon/components';
 				</span>
 				<h2 class="section-title">Votre <em>presence</em> en ligne</h2>
 			</div>
+			<div class="img-placeholder img-placeholder-wide reveal">
+				<span>IMAGE 3 — Mockup d'une fiche Google My Business d'un restaurant 4.8 etoiles avec photos de plats, horaires d'ouverture et bouton itineraire</span>
+			</div>
 			<div class="services-duo">
 				<div class="service-card reveal">
-					<div class="service-icon"><Icon name="lucide:map-pin" size={22} /></div>
-					<h3>Google My Business</h3>
-					<p>Creation, optimisation et gestion de votre fiche Google. Posts, avis, rapports.</p>
-					<span class="service-price">Des 25&euro;/mois</span>
+					<div class="service-icon"><Icon name="lucide:map-pin" size={24} /></div>
+					<div class="service-card-body">
+						<h3>Google My Business</h3>
+						<p>Creation, optimisation et gestion de votre fiche Google. Posts, avis, rapports mensuels.</p>
+						<span class="service-price">Des 25&euro;/mois</span>
+					</div>
 				</div>
 				<div class="service-card reveal">
-					<div class="service-icon"><Icon name="lucide:globe" size={22} /></div>
-					<h3>Site Web</h3>
-					<p>Site vitrine responsive, optimise SEO. Reservation, commande en ligne, maintenance.</p>
-					<span class="service-price">Des 800&euro;</span>
+					<div class="service-icon"><Icon name="lucide:globe" size={24} /></div>
+					<div class="service-card-body">
+						<h3>Site Web</h3>
+						<p>Site vitrine responsive, optimise SEO. Reservation, commande en ligne, maintenance incluse.</p>
+						<span class="service-price">Des 800&euro;</span>
+					</div>
 				</div>
 			</div>
+			<a href="/devis" class="section-cta reveal">
+				<Icon name="lucide:arrow-right" size={16} />
+				Obtenir un devis personnalise
+			</a>
 		</div>
 	</section>
 
@@ -136,20 +157,31 @@ import { Icon } from 'astro-icon/components';
 				</span>
 				<h2 class="section-title">Plus de <em>visibilite</em></h2>
 			</div>
+			<div class="img-placeholder img-placeholder-wide reveal">
+				<span>IMAGE 4 — Resultat de recherche Google montrant un restaurant en position 1 avec rich snippets (etoiles, prix, horaires) sur fond blanc</span>
+			</div>
 			<div class="services-duo">
 				<div class="service-card reveal">
-					<div class="service-icon"><Icon name="lucide:search" size={22} /></div>
-					<h3>Referencement SEO</h3>
-					<p>Audit technique, optimisation on-page, articles de blog, mots-cles locaux.</p>
-					<span class="service-price">Des 15&euro;/mois</span>
+					<div class="service-icon"><Icon name="lucide:search" size={24} /></div>
+					<div class="service-card-body">
+						<h3>Referencement SEO</h3>
+						<p>Audit technique, optimisation on-page, articles de blog, mots-cles locaux pour attirer plus de clients.</p>
+						<span class="service-price">Des 15&euro;/mois</span>
+					</div>
 				</div>
 				<div class="service-card reveal">
-					<div class="service-icon"><Icon name="lucide:smartphone" size={22} /></div>
-					<h3>Reseaux Sociaux</h3>
-					<p>Instagram, Facebook, TikTok — creation de comptes, publications, gestion complete.</p>
-					<span class="service-price">Des 49&euro;/mois</span>
+					<div class="service-icon"><Icon name="lucide:smartphone" size={24} /></div>
+					<div class="service-card-body">
+						<h3>Reseaux Sociaux</h3>
+						<p>Instagram, Facebook, TikTok — creation de comptes, publications regulieres, gestion complete.</p>
+						<span class="service-price">Des 49&euro;/mois</span>
+					</div>
 				</div>
 			</div>
+			<a href="/devis" class="section-cta reveal">
+				<Icon name="lucide:arrow-right" size={16} />
+				Estimer le cout de ma visibilite
+			</a>
 		</div>
 	</section>
 
@@ -164,20 +196,31 @@ import { Icon } from 'astro-icon/components';
 				</span>
 				<h2 class="section-title">Votre <em>image</em> soignee</h2>
 			</div>
+			<div class="img-placeholder img-placeholder-wide reveal">
+				<span>IMAGE 5 — Feed Instagram esthetique d'un restaurant : photos de plats bien eclaires, ambiance chaleureuse, stories mises en avant, grille harmonieuse</span>
+			</div>
 			<div class="services-duo">
 				<div class="service-card reveal">
-					<div class="service-icon"><Icon name="lucide:palette" size={22} /></div>
-					<h3>Creation Visuelle</h3>
-					<p>Visuels IA realistes, montage video, templates, menus, flyers.</p>
-					<span class="service-price">Des 15&euro;</span>
+					<div class="service-icon"><Icon name="lucide:palette" size={24} /></div>
+					<div class="service-card-body">
+						<h3>Creation Visuelle</h3>
+						<p>Visuels IA realistes, montage video, templates pour vos menus, flyers et publications.</p>
+						<span class="service-price">Des 15&euro;</span>
+					</div>
 				</div>
 				<div class="service-card reveal">
-					<div class="service-icon"><Icon name="lucide:star" size={22} /></div>
-					<h3>Avis & E-reputation</h3>
-					<p>QR codes, strategie de collecte, reponses aux avis, veille reputation.</p>
-					<span class="service-price">Des 19&euro;</span>
+					<div class="service-icon"><Icon name="lucide:star" size={24} /></div>
+					<div class="service-card-body">
+						<h3>Avis & E-reputation</h3>
+						<p>QR codes, strategie de collecte d'avis, reponses professionnelles, veille reputation.</p>
+						<span class="service-price">Des 19&euro;</span>
+					</div>
 				</div>
 			</div>
+			<a href="/devis" class="section-cta reveal">
+				<Icon name="lucide:arrow-right" size={16} />
+				Soigner mon image en ligne
+			</a>
 		</div>
 	</section>
 
@@ -187,7 +230,15 @@ import { Icon } from 'astro-icon/components';
 		<div class="trust-solo reveal">
 			<div class="trust-solo-icon"><Icon name="lucide:sparkles" size={32} /></div>
 			<h3 class="trust-solo-title">L'IA comme levier</h3>
-			<p class="trust-solo-desc">Redaction, visuels, analyse — l'intelligence artificielle accelere chaque tache. Le gain est repercute sur vos prix.</p>
+			<p class="trust-solo-desc">L'intelligence artificielle accelere chaque tache. Le gain de temps est repercute sur vos prix.</p>
+			<ul class="trust-bullets">
+				<li><Icon name="lucide:pen-line" size={16} /> Redaction de contenu 10x plus rapide</li>
+				<li><Icon name="lucide:image" size={16} /> Visuels realistes sans photographe</li>
+				<li><Icon name="lucide:bar-chart-3" size={16} /> Analyse de vos concurrents automatisee</li>
+			</ul>
+			<div class="img-placeholder img-placeholder-sm reveal">
+				<span>IMAGE 6 — Split screen : a gauche un prompt texte IA, a droite un visuel photorealiste de terrasse de restaurant genere par IA, eclairage chaud</span>
+			</div>
 		</div>
 	</section>
 
@@ -198,6 +249,14 @@ import { Icon } from 'astro-icon/components';
 			<div class="trust-solo-icon"><Icon name="lucide:user" size={32} /></div>
 			<h3 class="trust-solo-title">Un interlocuteur unique</h3>
 			<p class="trust-solo-desc">Pas d'agence, pas de commercial. Un seul contact dedie qui connait votre projet de A a Z.</p>
+			<ul class="trust-bullets">
+				<li><Icon name="lucide:user-check" size={16} /> Pas de sous-traitant, pas d'intermediaire</li>
+				<li><Icon name="lucide:message-circle" size={16} /> Disponible par WhatsApp, email ou telephone</li>
+				<li><Icon name="lucide:brain" size={16} /> Je connais votre metier et vos enjeux</li>
+			</ul>
+			<div class="img-placeholder img-placeholder-sm reveal">
+				<span>IMAGE 7 — Portrait professionnel decontracte : homme souriant devant un ordinateur portable, ambiance lumineuse et moderne, plantes en arriere-plan</span>
+			</div>
 		</div>
 	</section>
 
@@ -207,7 +266,15 @@ import { Icon } from 'astro-icon/components';
 		<div class="trust-solo reveal">
 			<div class="trust-solo-icon"><Icon name="lucide:zap" size={32} /></div>
 			<h3 class="trust-solo-title">Reactivite exemplaire</h3>
-			<p class="trust-solo-desc">Reponse en moins de 24h en semaine. Echanges par WhatsApp ou email, comme vous preferez.</p>
+			<p class="trust-solo-desc">Vous avez une urgence ? Une modification rapide ? Je suis la.</p>
+			<ul class="trust-bullets">
+				<li><Icon name="lucide:clock" size={16} /> Reponse garantie en moins de 24h</li>
+				<li><Icon name="lucide:rocket" size={16} /> Modifications urgentes sous 4h</li>
+				<li><Icon name="lucide:file-bar-chart" size={16} /> Reporting mensuel automatise</li>
+			</ul>
+			<div class="img-placeholder img-placeholder-sm reveal">
+				<span>IMAGE 8 — Notification push sur telephone : "Votre site est mis a jour !" avec un check vert, heure 14:03, fond flou de bureau</span>
+			</div>
 		</div>
 	</section>
 
@@ -227,6 +294,20 @@ import { Icon } from 'astro-icon/components';
 						<Icon name="lucide:phone" size={18} />
 						Appeler
 					</a>
+				</div>
+				<div class="cta-trust-badges">
+					<div class="cta-trust-item">
+						<Icon name="lucide:shield-check" size={16} />
+						<span>Devis gratuit</span>
+					</div>
+					<div class="cta-trust-item">
+						<Icon name="lucide:clock" size={16} />
+						<span>Reponse &lt;24h</span>
+					</div>
+					<div class="cta-trust-item">
+						<Icon name="lucide:lock" size={16} />
+						<span>Sans engagement</span>
+					</div>
 				</div>
 				<a href="/financement" class="cta-financement">
 					<Icon name="lucide:badge-euro" size={14} />
@@ -571,6 +652,36 @@ import { Icon } from 'astro-icon/components';
 		box-shadow: 0 6px 20px rgba(5, 150, 105, 0.1);
 	}
 
+	/* ─── IMAGE PLACEHOLDERS ─── */
+	.img-placeholder {
+		width: 100%;
+		max-width: 480px;
+		aspect-ratio: 16 / 9;
+		border-radius: 16px;
+		border: 2px dashed var(--border);
+		background: var(--bg-soft);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 20px;
+		margin-bottom: 24px;
+	}
+	.img-placeholder span {
+		font-size: 12px;
+		color: var(--text-muted);
+		text-align: center;
+		line-height: 1.5;
+		font-style: italic;
+	}
+	.img-placeholder-wide {
+		max-width: 600px;
+	}
+	.img-placeholder-sm {
+		max-width: 360px;
+		aspect-ratio: 16 / 10;
+		margin-top: 20px;
+	}
+
 	/* ─── SECTION CONTENT ─── */
 	.section-content {
 		position: relative;
@@ -589,7 +700,7 @@ import { Icon } from 'astro-icon/components';
 
 	.section-header {
 		text-align: center;
-		margin-bottom: 40px;
+		margin-bottom: 28px;
 	}
 	.section-label {
 		display: inline-flex;
@@ -604,7 +715,7 @@ import { Icon } from 'astro-icon/components';
 	}
 	.section-title {
 		font-family: 'Playfair Display', Georgia, serif;
-		font-size: clamp(1.4rem, 3.5vw, 2.2rem);
+		font-size: clamp(1.5rem, 3.5vw, 2.4rem);
 		font-weight: 500;
 		letter-spacing: -0.02em;
 		color: var(--navy);
@@ -613,6 +724,27 @@ import { Icon } from 'astro-icon/components';
 	.section-title em {
 		font-style: italic;
 		color: var(--accent);
+	}
+
+	/* ─── SECTION CTA (mini CTAs between sections) ─── */
+	.section-cta {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		margin-top: 20px;
+		padding: 10px 22px;
+		border-radius: 10px;
+		background: var(--navy);
+		color: #fff;
+		font-size: 13px;
+		font-weight: 600;
+		text-decoration: none;
+		transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+	}
+	.section-cta:hover {
+		background: var(--accent);
+		transform: translateY(-2px);
+		box-shadow: 0 6px 24px rgba(37, 99, 235, 0.2);
 	}
 
 	/* ─── BUTTONS ─── */
@@ -679,7 +811,7 @@ import { Icon } from 'astro-icon/components';
 		text-align: center;
 		background: #fff;
 		border-radius: 20px;
-		padding: 40px 24px;
+		padding: 36px 20px;
 		border: 1px solid var(--border-light);
 	}
 	.stats-alt .stat-card {
@@ -693,20 +825,21 @@ import { Icon } from 'astro-icon/components';
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		margin: 0 auto 16px;
+		margin: 0 auto 14px;
 		color: var(--accent);
 	}
 	.stat-value {
 		font-family: 'Playfair Display', Georgia, serif;
-		font-size: 36px;
+		font-size: 40px;
 		font-weight: 600;
 		color: var(--navy);
 		letter-spacing: -0.02em;
 	}
 	.stat-label {
-		font-size: 13px;
-		color: var(--text-muted);
+		font-size: 14px;
+		color: var(--text-sec);
 		margin-top: 6px;
+		line-height: 1.4;
 	}
 
 	/* ─── SERVICES ─── */
@@ -734,7 +867,7 @@ import { Icon } from 'astro-icon/components';
 		background: var(--bg-soft);
 		border: 1px solid var(--border-light);
 		border-radius: 18px;
-		padding: 36px 28px;
+		padding: 32px 24px;
 		transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 	}
 	.services-alt .service-card {
@@ -753,24 +886,24 @@ import { Icon } from 'astro-icon/components';
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		margin-bottom: 18px;
+		margin-bottom: 16px;
 		color: var(--accent);
 	}
 	.service-card h3 {
-		font-size: 18px;
+		font-size: 19px;
 		font-weight: 700;
 		color: var(--navy);
 		margin-bottom: 8px;
 		letter-spacing: -0.01em;
 	}
 	.service-card p {
-		font-size: 14px;
+		font-size: 15px;
 		color: var(--text-sec);
 		line-height: 1.65;
 		margin-bottom: 14px;
 	}
 	.service-price {
-		font-size: 13px;
+		font-size: 14px;
 		font-weight: 600;
 		color: var(--accent);
 	}
@@ -786,7 +919,7 @@ import { Icon } from 'astro-icon/components';
 		position: relative;
 		z-index: 1;
 		text-align: center;
-		max-width: 520px;
+		max-width: 560px;
 		padding: 0 24px;
 	}
 	.trust-solo-icon {
@@ -797,7 +930,7 @@ import { Icon } from 'astro-icon/components';
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		margin: 0 auto 28px;
+		margin: 0 auto 24px;
 		color: var(--accent);
 	}
 	.trust-solo-title {
@@ -805,13 +938,38 @@ import { Icon } from 'astro-icon/components';
 		font-size: clamp(1.5rem, 4vw, 2.2rem);
 		font-weight: 500;
 		color: var(--navy);
-		margin-bottom: 16px;
+		margin-bottom: 12px;
 		letter-spacing: -0.02em;
 	}
 	.trust-solo-desc {
 		font-size: clamp(0.95rem, 2vw, 1.1rem);
 		color: var(--text-sec);
-		line-height: 1.8;
+		line-height: 1.7;
+		margin-bottom: 16px;
+	}
+
+	/* ─── TRUST BULLETS ─── */
+	.trust-bullets {
+		list-style: none;
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+		text-align: left;
+		max-width: 380px;
+		margin: 0 auto;
+	}
+	.trust-bullets li {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		font-size: 14px;
+		color: var(--text-sec);
+		font-weight: 500;
+	}
+	.trust-bullets li [data-icon] {
+		color: var(--accent);
+		flex-shrink: 0;
 	}
 
 	/* ─── CTA ─── */
@@ -831,7 +989,7 @@ import { Icon } from 'astro-icon/components';
 	}
 	.cta-box {
 		text-align: center;
-		padding: 56px 36px;
+		padding: 48px 36px;
 		border-radius: 24px;
 		background: rgba(255, 255, 255, 0.05);
 		border: 1px solid rgba(255, 255, 255, 0.08);
@@ -853,7 +1011,7 @@ import { Icon } from 'astro-icon/components';
 	}
 	.cta-box h2 {
 		font-family: 'Playfair Display', Georgia, serif;
-		font-size: clamp(1.4rem, 3.5vw, 2rem);
+		font-size: clamp(1.5rem, 3.5vw, 2.2rem);
 		font-weight: 500;
 		margin-bottom: 12px;
 		color: #fff;
@@ -865,8 +1023,8 @@ import { Icon } from 'astro-icon/components';
 	}
 	.cta-box p {
 		color: rgba(255, 255, 255, 0.6);
-		font-size: 15px;
-		margin-bottom: 32px;
+		font-size: 16px;
+		margin-bottom: 28px;
 		line-height: 1.7;
 		position: relative;
 	}
@@ -895,12 +1053,32 @@ import { Icon } from 'astro-icon/components';
 		color: #fff;
 	}
 
+	/* ─── CTA TRUST BADGES ─── */
+	.cta-trust-badges {
+		display: flex;
+		justify-content: center;
+		gap: 24px;
+		margin-top: 24px;
+		position: relative;
+	}
+	.cta-trust-item {
+		display: flex;
+		align-items: center;
+		gap: 6px;
+		color: rgba(255, 255, 255, 0.4);
+		font-size: 12px;
+		font-weight: 500;
+	}
+	.cta-trust-item [data-icon] {
+		color: #60a5fa;
+	}
+
 	/* ─── CTA FINANCEMENT LINK ─── */
 	.cta-financement {
 		display: inline-flex;
 		align-items: center;
 		gap: 8px;
-		margin-top: 24px;
+		margin-top: 20px;
 		color: rgba(255, 255, 255, 0.45);
 		font-size: 13px;
 		text-decoration: none;
@@ -935,7 +1113,7 @@ import { Icon } from 'astro-icon/components';
 	@media (max-width: 900px) {
 	}
 
-	/* Mobile - everything fits in viewport */
+	/* Mobile */
 	@media (max-width: 640px) {
 		.snap-section {
 			padding: 60px 0 20px;
@@ -949,7 +1127,7 @@ import { Icon } from 'astro-icon/components';
 			margin-bottom: 14px;
 		}
 		.hero-subtitle {
-			font-size: 0.85rem;
+			font-size: 0.95rem;
 			margin-bottom: 24px;
 			line-height: 1.6;
 		}
@@ -979,85 +1157,137 @@ import { Icon } from 'astro-icon/components';
 			margin-top: 20px;
 		}
 
+		/* Nav mobile: hide text link */
+		.nav-link {
+			display: none;
+		}
+
 		.section-content {
 			padding: 0 16px;
 		}
 		.section-header {
-			margin-bottom: 24px;
+			margin-bottom: 16px;
 		}
 		.section-title {
-			font-size: clamp(1.2rem, 5vw, 1.6rem);
+			font-size: clamp(1.3rem, 6vw, 1.8rem);
 		}
 
-		/* Stats duo compact */
+		/* Image placeholders mobile */
+		.img-placeholder {
+			aspect-ratio: 16 / 8;
+			max-width: 100%;
+			margin-bottom: 16px;
+			padding: 14px;
+		}
+		.img-placeholder span {
+			font-size: 10px;
+		}
+		.img-placeholder-sm {
+			margin-top: 14px;
+		}
+
+		/* Section CTA mobile */
+		.section-cta {
+			margin-top: 14px;
+			padding: 9px 18px;
+			font-size: 12px;
+		}
+
+		/* Stats duo */
 		.stats-duo {
-			gap: 14px;
+			gap: 12px;
 		}
 		.stat-card {
-			padding: 28px 16px;
+			padding: 24px 14px;
 		}
 		.stat-icon {
-			width: 46px;
-			height: 46px;
+			width: 48px;
+			height: 48px;
 		}
 		.stat-value {
-			font-size: 28px;
+			font-size: 32px;
+		}
+		.stat-label {
+			font-size: 13px;
 		}
 
 		/* Services duo: stack on mobile */
 		.services-duo {
 			grid-template-columns: 1fr;
-			gap: 14px;
+			gap: 12px;
 			max-width: 100%;
 		}
 		.service-card {
-			padding: 22px 18px;
+			padding: 20px 16px;
 			display: flex;
 			gap: 14px;
 			align-items: flex-start;
 		}
 		.service-icon {
-			width: 42px;
-			height: 42px;
-			min-width: 42px;
+			width: 48px;
+			height: 48px;
+			min-width: 48px;
 			margin-bottom: 0;
 		}
 		.service-card h3 {
-			font-size: 15px;
+			font-size: 16px;
 			margin-bottom: 4px;
 		}
 		.service-card p {
-			font-size: 12px;
+			font-size: 13px;
 			line-height: 1.5;
 			margin-bottom: 6px;
 		}
 		.service-price {
-			font-size: 12px;
+			font-size: 13px;
 		}
 
 		/* Trust solo mobile */
+		.trust-solo {
+			max-width: 100%;
+			padding: 0 20px;
+		}
 		.trust-solo-icon {
-			width: 56px;
-			height: 56px;
-			margin-bottom: 20px;
+			width: 60px;
+			height: 60px;
+			margin-bottom: 18px;
 		}
 		.trust-solo-title {
-			font-size: 1.4rem;
+			font-size: 1.5rem;
 		}
 		.trust-solo-desc {
-			font-size: 0.9rem;
+			font-size: 0.95rem;
+			margin-bottom: 14px;
+		}
+		.trust-bullets {
+			max-width: 100%;
+		}
+		.trust-bullets li {
+			font-size: 13px;
 		}
 
 		/* CTA */
 		.cta-box {
-			padding: 36px 20px;
+			padding: 32px 18px;
 		}
 		.cta-box h2 {
-			font-size: 1.3rem;
+			font-size: 1.4rem;
 		}
 		.cta-box p {
-			font-size: 13px;
-			margin-bottom: 24px;
+			font-size: 14px;
+			margin-bottom: 20px;
+		}
+		.cta-trust-badges {
+			gap: 14px;
+			flex-wrap: wrap;
+		}
+		.cta-trust-item {
+			font-size: 11px;
+		}
+		.cta-financement {
+			font-size: 11px;
+			margin-top: 16px;
+			text-align: center;
 		}
 	}
 
@@ -1067,13 +1297,19 @@ import { Icon } from 'astro-icon/components';
 			font-size: 1.4rem;
 		}
 		.hero-subtitle {
-			font-size: 0.8rem;
+			font-size: 0.85rem;
+		}
+		.stat-value {
+			font-size: 24px;
 		}
 		.service-card p {
 			display: none;
 		}
-		.stat-value {
-			font-size: 20px;
+		.trust-bullets li {
+			font-size: 12px;
+		}
+		.img-placeholder {
+			display: none;
 		}
 	}
 </style>
