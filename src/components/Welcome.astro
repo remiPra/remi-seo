@@ -15,7 +15,8 @@ import { Icon } from 'astro-icon/components';
 					<div class="nav-tagline">Visibilite digitale</div>
 				</div>
 			</div>
-			<a href="/devis" class="nav-cta">Estimer mon projet</a>
+			<a href="/financement" class="nav-link">Formation financee</a>
+		<a href="/devis" class="nav-cta">Estimer mon projet</a>
 		</div>
 	</nav>
 
@@ -455,6 +456,16 @@ import { Icon } from 'astro-icon/components';
 	.nav-tagline {
 		font-size: 11px;
 		color: var(--text-muted);
+	}
+	.nav-link {
+		text-decoration: none;
+		font-size: 13px;
+		font-weight: 600;
+		color: var(--text-sec);
+		transition: color 0.2s;
+	}
+	.nav-link:hover {
+		color: var(--accent);
 	}
 	.nav-cta {
 		padding: 8px 20px;
