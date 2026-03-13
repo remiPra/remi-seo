@@ -42,6 +42,10 @@ import { Icon } from 'astro-icon/components';
 				</a>
 				<a href="/devis" class="btn btn-outline">Estimer mon projet</a>
 			</div>
+			<a href="/financement" class="hero-financement anim-fade anim-d4">
+				<Icon name="lucide:badge-euro" size={14} />
+				Restaurateur ? Votre formation peut etre prise en charge a 100 %
+			</a>
 			<div class="scroll-hint anim-fade anim-d4">
 				<Icon name="lucide:chevron-down" size={20} />
 			</div>
@@ -224,6 +228,10 @@ import { Icon } from 'astro-icon/components';
 						Appeler
 					</a>
 				</div>
+				<a href="/financement" class="cta-financement">
+					<Icon name="lucide:badge-euro" size={14} />
+					Decouvrir les financements disponibles pour les restaurants et hotels
+				</a>
 			</div>
 		</div>
 		<footer class="footer">
@@ -539,6 +547,28 @@ import { Icon } from 'astro-icon/components';
 		gap: 12px;
 		justify-content: center;
 		flex-wrap: wrap;
+	}
+
+	/* ─── HERO FINANCEMENT LINK ─── */
+	.hero-financement {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		margin-top: 24px;
+		padding: 10px 20px;
+		border-radius: 100px;
+		background: rgba(5, 150, 105, 0.06);
+		border: 1px solid rgba(5, 150, 105, 0.15);
+		color: #059669;
+		font-size: 13px;
+		font-weight: 600;
+		text-decoration: none;
+		transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+	}
+	.hero-financement:hover {
+		background: rgba(5, 150, 105, 0.12);
+		transform: translateY(-2px);
+		box-shadow: 0 6px 20px rgba(5, 150, 105, 0.1);
 	}
 
 	/* ─── SECTION CONTENT ─── */
@@ -865,6 +895,22 @@ import { Icon } from 'astro-icon/components';
 		color: #fff;
 	}
 
+	/* ─── CTA FINANCEMENT LINK ─── */
+	.cta-financement {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		margin-top: 24px;
+		color: rgba(255, 255, 255, 0.45);
+		font-size: 13px;
+		text-decoration: none;
+		transition: color 0.2s;
+		position: relative;
+	}
+	.cta-financement:hover {
+		color: rgba(255, 255, 255, 0.8);
+	}
+
 	/* ─── FOOTER ─── */
 	.footer {
 		position: relative;
@@ -922,6 +968,12 @@ import { Icon } from 'astro-icon/components';
 		.btn-lg {
 			padding: 13px 26px;
 			font-size: 14px;
+		}
+		.hero-financement {
+			font-size: 11px;
+			padding: 8px 14px;
+			margin-top: 16px;
+			text-align: center;
 		}
 		.scroll-hint {
 			margin-top: 20px;
