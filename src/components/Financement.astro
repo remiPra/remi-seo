@@ -1,6 +1,10 @@
 ---
 import { Icon } from 'astro-icon/components';
+import EligibiliteChecker from './EligibiliteChecker.jsx';
 ---
+
+<!-- SCROLL SNAP CONTAINER -->
+<div class="snap-container">
 
 <!-- NAV -->
 <nav class="nav">
@@ -17,7 +21,7 @@ import { Icon } from 'astro-icon/components';
 </nav>
 
 <!-- HERO -->
-<section class="fin-hero">
+<section class="snap-section fin-hero">
 	<div class="parallax-bg hero-bg"></div>
 	<div class="fin-hero-content">
 		<div class="fin-badge anim-fade">
@@ -37,44 +41,46 @@ import { Icon } from 'astro-icon/components';
 				Comment ca marche
 				<Icon name="lucide:arrow-down" size={18} />
 			</a>
-			<a href="#contact-fin" class="btn btn-outline">Verifier mon eligibilite</a>
+			<button class="btn btn-outline" onclick="document.dispatchEvent(new CustomEvent('open-eligibilite'))">Verifier mon eligibilite</button>
 		</div>
 	</div>
 </section>
 
 <!-- STATS CHOC -->
-<section class="fin-stats">
-	<div class="fin-container">
-		<div class="section-header reveal">
-			<span class="section-label">
-				<Icon name="lucide:bar-chart-3" size={14} />
-				Pourquoi maintenant
-			</span>
-			<h2 class="section-title">Vos futurs clients sont <em>deja en ligne</em></h2>
-		</div>
-		<div class="stats-grid">
-			<div class="stat-card-fin reveal">
-				<div class="stat-number">76%</div>
-				<p>des personnes qui cherchent un commerce a proximite s'y rendent dans les 24 heures</p>
+<section class="snap-section fin-stats">
+	<div class="fin-section-inner">
+		<div class="fin-container">
+			<div class="section-header reveal">
+				<span class="section-label">
+					<Icon name="lucide:bar-chart-3" size={14} />
+					Pourquoi maintenant
+				</span>
+				<h2 class="section-title">Vos futurs clients sont <em>deja en ligne</em></h2>
 			</div>
-			<div class="stat-card-fin reveal">
-				<div class="stat-number">93%</div>
-				<p>des consommateurs lisent les avis en ligne avant de choisir un restaurant</p>
-			</div>
-			<div class="stat-card-fin reveal">
-				<div class="stat-number">46%</div>
-				<p>des recherches Google ont une intention locale : &laquo; restaurant pres de moi &raquo;</p>
-			</div>
-			<div class="stat-card-fin reveal">
-				<div class="stat-number">65%</div>
-				<p>des TPE ont un site internet, mais la majorite n'est pas optimisee pour Google</p>
+			<div class="stats-grid">
+				<div class="stat-card-fin reveal">
+					<div class="stat-number">76%</div>
+					<p>des personnes qui cherchent un commerce a proximite s'y rendent dans les 24 heures</p>
+				</div>
+				<div class="stat-card-fin reveal">
+					<div class="stat-number">93%</div>
+					<p>des consommateurs lisent les avis en ligne avant de choisir un restaurant</p>
+				</div>
+				<div class="stat-card-fin reveal">
+					<div class="stat-number">46%</div>
+					<p>des recherches Google ont une intention locale : &laquo; restaurant pres de moi &raquo;</p>
+				</div>
+				<div class="stat-card-fin reveal">
+					<div class="stat-number">65%</div>
+					<p>des TPE ont un site internet, mais la majorite n'est pas optimisee pour Google</p>
+				</div>
 			</div>
 		</div>
 	</div>
 </section>
 
 <!-- MESSAGE CLE : 0 EURO -->
-<section class="fin-zero">
+<section class="snap-section fin-zero">
 	<div class="fin-container">
 		<div class="zero-box reveal">
 			<div class="zero-icon-wrap">
@@ -92,49 +98,51 @@ import { Icon } from 'astro-icon/components';
 </section>
 
 <!-- COMMENT CA MARCHE -->
-<section id="comment-ca-marche" class="fin-steps">
-	<div class="fin-container">
-		<div class="section-header reveal">
-			<span class="section-label">
-				<Icon name="lucide:list-checks" size={14} />
-				Simple et rapide
-			</span>
-			<h2 class="section-title">Comment ca marche en <em>5 etapes</em></h2>
-		</div>
-		<div class="steps-list">
-			<div class="step-item reveal">
-				<div class="step-number">1</div>
-				<div class="step-content">
-					<h3>Contactez-nous</h3>
-					<p>Un appel ou un email pour nous parler de votre projet. C'est gratuit et sans engagement.</p>
-				</div>
+<section id="comment-ca-marche" class="snap-section fin-steps">
+	<div class="fin-section-inner">
+		<div class="fin-container">
+			<div class="section-header reveal">
+				<span class="section-label">
+					<Icon name="lucide:list-checks" size={14} />
+					Simple et rapide
+				</span>
+				<h2 class="section-title">Comment ca marche en <em>5 etapes</em></h2>
 			</div>
-			<div class="step-item reveal">
-				<div class="step-number">2</div>
-				<div class="step-content">
-					<h3>Entretien de 20 minutes</h3>
-					<p>On fait le point sur vos besoins par telephone ou visio pour adapter la formation a votre etablissement.</p>
+			<div class="steps-list">
+				<div class="step-item reveal">
+					<div class="step-number">1</div>
+					<div class="step-content">
+						<h3>Contactez-nous</h3>
+						<p>Un appel ou un email pour nous parler de votre projet. C'est gratuit et sans engagement.</p>
+					</div>
 				</div>
-			</div>
-			<div class="step-item reveal">
-				<div class="step-number">3</div>
-				<div class="step-content">
-					<h3>On monte le dossier pour vous</h3>
-					<p>Devis, convention, programme — on prepare tout. Vous n'avez qu'a signer.</p>
+				<div class="step-item reveal">
+					<div class="step-number">2</div>
+					<div class="step-content">
+						<h3>Entretien de 20 minutes</h3>
+						<p>On fait le point sur vos besoins par telephone ou visio pour adapter la formation a votre etablissement.</p>
+					</div>
 				</div>
-			</div>
-			<div class="step-item reveal">
-				<div class="step-number">4</div>
-				<div class="step-content">
-					<h3>Depot aupres de votre OPCO</h3>
-					<p>Le dossier est depose aupres d'AKTO. On s'occupe de toutes les demarches administratives.</p>
+				<div class="step-item reveal">
+					<div class="step-number">3</div>
+					<div class="step-content">
+						<h3>On monte le dossier pour vous</h3>
+						<p>Devis, convention, programme — on prepare tout. Vous n'avez qu'a signer.</p>
+					</div>
 				</div>
-			</div>
-			<div class="step-item reveal">
-				<div class="step-number">5</div>
-				<div class="step-content">
-					<h3>C'est parti !</h3>
-					<p>Des validation, la formation demarre. AKTO paye directement — vous n'avancez rien.</p>
+				<div class="step-item reveal">
+					<div class="step-number">4</div>
+					<div class="step-content">
+						<h3>Depot aupres de votre OPCO</h3>
+						<p>Le dossier est depose aupres d'AKTO. On s'occupe de toutes les demarches administratives.</p>
+					</div>
+				</div>
+				<div class="step-item reveal">
+					<div class="step-number">5</div>
+					<div class="step-content">
+						<h3>C'est parti !</h3>
+						<p>Des validation, la formation demarre. AKTO paye directement — vous n'avancez rien.</p>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -142,140 +150,163 @@ import { Icon } from 'astro-icon/components';
 </section>
 
 <!-- CE QUE VOUS OBTENEZ -->
-<section class="fin-formation">
-	<div class="fin-container">
-		<div class="section-header reveal">
-			<span class="section-label">
-				<Icon name="lucide:graduation-cap" size={14} />
-				La formation
-			</span>
-			<h2 class="section-title">Ce que vous obtenez en <em>35 heures</em></h2>
-		</div>
-		<div class="formation-grid">
-			<div class="formation-card reveal">
-				<div class="formation-icon"><Icon name="lucide:globe" size={22} /></div>
-				<h3>Un site web professionnel</h3>
-				<p>Votre site WordPress complet : accueil, carte, reservation en ligne, contact. Fonctionnel et en ligne.</p>
+<section class="snap-section fin-formation">
+	<div class="fin-section-inner">
+		<div class="fin-container">
+			<div class="section-header reveal">
+				<span class="section-label">
+					<Icon name="lucide:graduation-cap" size={14} />
+					La formation
+				</span>
+				<h2 class="section-title">Ce que vous obtenez en <em>35 heures</em></h2>
 			</div>
-			<div class="formation-card reveal">
-				<div class="formation-icon"><Icon name="lucide:map-pin" size={22} /></div>
-				<h3>Fiche Google optimisee</h3>
-				<p>Votre Google Business Profile optimise pour apparaitre dans les resultats Google Maps.</p>
+			<div class="formation-grid">
+				<div class="formation-card reveal">
+					<div class="formation-icon"><Icon name="lucide:globe" size={22} /></div>
+					<h3>Un site web professionnel</h3>
+					<p>Votre site WordPress complet : accueil, carte, reservation en ligne, contact. Fonctionnel et en ligne.</p>
+				</div>
+				<div class="formation-card reveal">
+					<div class="formation-icon"><Icon name="lucide:map-pin" size={22} /></div>
+					<h3>Fiche Google optimisee</h3>
+					<p>Votre Google Business Profile optimise pour apparaitre dans les resultats Google Maps.</p>
+				</div>
+				<div class="formation-card reveal">
+					<div class="formation-icon"><Icon name="lucide:search" size={22} /></div>
+					<h3>Les bases du SEO</h3>
+					<p>Apprenez a attirer des clients via Google. Mots-cles locaux, contenu optimise, bonnes pratiques.</p>
+				</div>
+				<div class="formation-card reveal">
+					<div class="formation-icon"><Icon name="lucide:wrench" size={22} /></div>
+					<h3>Autonomie totale</h3>
+					<p>Modifier votre carte, ajouter des photos, repondre aux avis — vous savez tout faire seul.</p>
+				</div>
 			</div>
-			<div class="formation-card reveal">
-				<div class="formation-icon"><Icon name="lucide:search" size={22} /></div>
-				<h3>Les bases du SEO</h3>
-				<p>Apprenez a attirer des clients via Google. Mots-cles locaux, contenu optimise, bonnes pratiques.</p>
-			</div>
-			<div class="formation-card reveal">
-				<div class="formation-icon"><Icon name="lucide:wrench" size={22} /></div>
-				<h3>Autonomie totale</h3>
-				<p>Modifier votre carte, ajouter des photos, repondre aux avis — vous savez tout faire seul.</p>
-			</div>
-		</div>
-		<div class="formation-details reveal">
-			<div class="detail-row">
-				<span class="detail-label">Format</span>
-				<span class="detail-value">100 % a distance via Zoom</span>
-			</div>
-			<div class="detail-row">
-				<span class="detail-label">Rythme</span>
-				<span class="detail-value">1 jour par semaine pendant 5 semaines</span>
-			</div>
-			<div class="detail-row">
-				<span class="detail-label">Groupe</span>
-				<span class="detail-value">4 personnes maximum</span>
-			</div>
-			<div class="detail-row">
-				<span class="detail-label">Tarif</span>
-				<span class="detail-value">2 100 &euro; HT — financable a 100 %</span>
-			</div>
-			<div class="detail-row">
-				<span class="detail-label">Bonus</span>
-				<span class="detail-value">30 jours de support email apres la formation</span>
+			<div class="formation-details reveal">
+				<div class="detail-row">
+					<span class="detail-label">Format</span>
+					<span class="detail-value">100 % a distance via Zoom</span>
+				</div>
+				<div class="detail-row">
+					<span class="detail-label">Rythme</span>
+					<span class="detail-value">1 jour par semaine pendant 5 semaines</span>
+				</div>
+				<div class="detail-row">
+					<span class="detail-label">Groupe</span>
+					<span class="detail-value">4 personnes maximum</span>
+				</div>
+				<div class="detail-row">
+					<span class="detail-label">Tarif</span>
+					<span class="detail-value">2 100 &euro; HT — financable a 100 %</span>
+				</div>
+				<div class="detail-row">
+					<span class="detail-label">Bonus</span>
+					<span class="detail-value">30 jours de support email apres la formation</span>
+				</div>
 			</div>
 		</div>
 	</div>
 </section>
 
 <!-- QUEL FINANCEMENT POUR VOUS -->
-<section class="fin-dispositifs">
-	<div class="fin-container">
-		<div class="section-header reveal">
-			<span class="section-label">
-				<Icon name="lucide:landmark" size={14} />
-				Les dispositifs
-			</span>
-			<h2 class="section-title">Quel financement pour <em>votre situation</em> ?</h2>
-		</div>
-		<div class="dispositif-grid">
-			<div class="dispositif-card dispositif-main reveal">
-				<div class="dispositif-badge">Le plus courant</div>
-				<h3>OPCO AKTO</h3>
-				<div class="dispositif-amount">Jusqu'a 100 %</div>
-				<p>Pour les salaries de restaurants, hotels, cafes (moins de 50 salaries). Votre employeur cotise deja — autant en profiter.</p>
-				<ul class="dispositif-list">
-					<li><Icon name="lucide:check" size={14} /> Cout pedagogique pris en charge a 100 %</li>
-					<li><Icon name="lucide:check" size={14} /> Remuneration du salarie : 15 &euro;/h rembourses</li>
-					<li><Icon name="lucide:check" size={14} /> Subrogation : vous n'avancez rien</li>
-				</ul>
+<section class="snap-section fin-dispositifs">
+	<div class="fin-section-inner">
+		<div class="fin-container">
+			<div class="section-header reveal">
+				<span class="section-label">
+					<Icon name="lucide:landmark" size={14} />
+					Les dispositifs
+				</span>
+				<h2 class="section-title">Quel financement pour <em>votre situation</em> ?</h2>
 			</div>
-			<div class="dispositif-card reveal">
-				<h3>AGEFICE</h3>
-				<div class="dispositif-amount">Jusqu'a 3 500 &euro;/an</div>
-				<p>Pour les gerants non salaries (TNS) de restaurants. Le fonds le plus courant pour les independants.</p>
-			</div>
-			<div class="dispositif-card reveal">
-				<h3>France Travail (AIF)</h3>
-				<div class="dispositif-amount">Jusqu'a 100 %</div>
-				<p>Pour les demandeurs d'emploi en reconversion ou creation dans le secteur HCR.</p>
-			</div>
-			<div class="dispositif-card reveal">
-				<h3>Aides regionales</h3>
-				<div class="dispositif-amount">500 &euro; a 5 000 &euro;</div>
-				<p>Cheques numeriques, programme Atouts Numeriques, aides CCI — souvent cumulables avec l'OPCO.</p>
+			<div class="dispositif-grid">
+				<div class="dispositif-card dispositif-main reveal">
+					<div class="dispositif-badge">Le plus courant</div>
+					<h3>OPCO AKTO</h3>
+					<div class="dispositif-amount">Jusqu'a 100 %</div>
+					<p>Pour les salaries de restaurants, hotels, cafes (moins de 50 salaries). Votre employeur cotise deja — autant en profiter.</p>
+					<ul class="dispositif-list">
+						<li><Icon name="lucide:check" size={14} /> Cout pedagogique pris en charge a 100 %</li>
+						<li><Icon name="lucide:check" size={14} /> Remuneration du salarie : 15 &euro;/h rembourses</li>
+						<li><Icon name="lucide:check" size={14} /> Subrogation : vous n'avancez rien</li>
+					</ul>
+				</div>
+				<div class="dispositif-card reveal">
+					<h3>AGEFICE</h3>
+					<div class="dispositif-amount">Jusqu'a 3 500 &euro;/an</div>
+					<p>Pour les gerants non salaries (TNS) de restaurants. Le fonds le plus courant pour les independants.</p>
+				</div>
+				<div class="dispositif-card reveal">
+					<h3>France Travail (AIF)</h3>
+					<div class="dispositif-amount">Jusqu'a 100 %</div>
+					<p>Pour les demandeurs d'emploi en reconversion ou creation dans le secteur HCR.</p>
+				</div>
+				<div class="dispositif-card reveal">
+					<h3>Aides regionales</h3>
+					<div class="dispositif-amount">500 &euro; a 5 000 &euro;</div>
+					<p>Cheques numeriques, programme Atouts Numeriques, aides CCI — souvent cumulables avec l'OPCO.</p>
+				</div>
 			</div>
 		</div>
 	</div>
 </section>
 
-<!-- FAQ RAPIDE -->
-<section class="fin-faq">
-	<div class="fin-container">
-		<div class="section-header reveal">
-			<span class="section-label">
-				<Icon name="lucide:message-circle-question" size={14} />
-				Questions frequentes
-			</span>
-			<h2 class="section-title">On vous dit <em>tout</em></h2>
+<!-- FAQ 1/2 -->
+<section class="snap-section fin-faq">
+	<div class="fin-section-inner">
+		<div class="fin-container">
+			<div class="section-header reveal">
+				<span class="section-label">
+					<Icon name="lucide:message-circle-question" size={14} />
+					Questions frequentes
+				</span>
+				<h2 class="section-title">On vous dit <em>tout</em></h2>
+			</div>
+			<div class="faq-list">
+				<div class="faq-item reveal">
+					<h3>Je suis restaurateur independant, ca marche pour moi ?</h3>
+					<p>Oui. Que vous soyez gerant salarie ou non salarie, il existe un dispositif pour vous. Si vous etes salarie, c'est l'OPCO AKTO. Si vous etes TNS, c'est l'AGEFICE. On determine ensemble le bon canal.</p>
+				</div>
+				<div class="faq-item reveal">
+					<h3>Est-ce que je dois avancer l'argent ?</h3>
+					<p>Non. Grace a la subrogation, AKTO paye directement l'organisme de formation. Vous ne sortez pas un euro de votre poche.</p>
+				</div>
+				<div class="faq-item reveal">
+					<h3>Combien de temps dure la formation ?</h3>
+					<p>35 heures reparties sur 5 semaines, a raison d'un jour par semaine. C'est compatible avec votre activite — vous restez dans votre etablissement.</p>
+				</div>
+			</div>
 		</div>
-		<div class="faq-list">
-			<div class="faq-item reveal">
-				<h3>Je suis restaurateur independant, ca marche pour moi ?</h3>
-				<p>Oui. Que vous soyez gerant salarie ou non salarie, il existe un dispositif pour vous. Si vous etes salarie, c'est l'OPCO AKTO. Si vous etes TNS, c'est l'AGEFICE. On determine ensemble le bon canal.</p>
+	</div>
+</section>
+
+<!-- FAQ 2/2 -->
+<section class="snap-section fin-faq fin-faq-2">
+	<div class="fin-section-inner">
+		<div class="fin-container">
+			<div class="section-header reveal">
+				<span class="section-label">
+					<Icon name="lucide:message-circle-question" size={14} />
+					Questions frequentes
+				</span>
+				<h2 class="section-title">Encore des <em>questions</em> ?</h2>
 			</div>
-			<div class="faq-item reveal">
-				<h3>Est-ce que je dois avancer l'argent ?</h3>
-				<p>Non. Grace a la subrogation, AKTO paye directement l'organisme de formation. Vous ne sortez pas un euro de votre poche.</p>
-			</div>
-			<div class="faq-item reveal">
-				<h3>Combien de temps dure la formation ?</h3>
-				<p>35 heures reparties sur 5 semaines, a raison d'un jour par semaine. C'est compatible avec votre activite — vous restez dans votre etablissement.</p>
-			</div>
-			<div class="faq-item reveal">
-				<h3>J'y connais rien en informatique, c'est grave ?</h3>
-				<p>Pas du tout. Le seul prerequis est de savoir utiliser un ordinateur et naviguer sur internet. On part de zero et vous repartez avec un vrai site en ligne.</p>
-			</div>
-			<div class="faq-item reveal">
-				<h3>Quels sont les documents necessaires ?</h3>
-				<p>On s'occupe de tout : devis, convention, programme. Vous n'avez qu'a signer. Le dossier OPCO est depose par nos soins.</p>
+			<div class="faq-list">
+				<div class="faq-item reveal">
+					<h3>J'y connais rien en informatique, c'est grave ?</h3>
+					<p>Pas du tout. Le seul prerequis est de savoir utiliser un ordinateur et naviguer sur internet. On part de zero et vous repartez avec un vrai site en ligne.</p>
+				</div>
+				<div class="faq-item reveal">
+					<h3>Quels sont les documents necessaires ?</h3>
+					<p>On s'occupe de tout : devis, convention, programme. Vous n'avez qu'a signer. Le dossier OPCO est depose par nos soins.</p>
+				</div>
 			</div>
 		</div>
 	</div>
 </section>
 
 <!-- CTA FINAL -->
-<section id="contact-fin" class="fin-cta">
+<section id="contact-fin" class="snap-section fin-cta">
 	<div class="fin-container">
 		<div class="cta-box-fin reveal">
 			<h2>Pret a passer au <em>numerique</em> ?</h2>
@@ -304,8 +335,14 @@ import { Icon } from 'astro-icon/components';
 	</footer>
 </section>
 
-<!-- Reveal on scroll -->
+</div><!-- end snap-container -->
+
+<!-- Modal Quiz (rendered outside snap-container, position:fixed) -->
+<EligibiliteChecker client:load />
+
+<!-- Reveal on scroll + Anchor scroll fix -->
 <script>
+	// Reveal on scroll
 	const observer = new IntersectionObserver(
 		(entries) => {
 			entries.forEach((entry) => {
@@ -315,12 +352,60 @@ import { Icon } from 'astro-icon/components';
 				}
 			});
 		},
-		{ threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+		{ threshold: 0.15, rootMargin: '0px 0px -20px 0px' }
 	);
 	document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+	// Fix anchor links inside snap-container
+	const snapContainer = document.querySelector('.snap-container');
+	if (snapContainer) {
+		document.querySelectorAll('a[href^="#"]').forEach((link) => {
+			link.addEventListener('click', (e) => {
+				const id = link.getAttribute('href')?.slice(1);
+				if (!id) return;
+				const target = document.getElementById(id);
+				if (target && snapContainer.contains(target)) {
+					e.preventDefault();
+					target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+				}
+			});
+		});
+	}
 </script>
 
 <style>
+	/* ─── SCROLL SNAP CONTAINER ─── */
+	.snap-container {
+		height: 100vh;
+		overflow-y: scroll;
+		scroll-snap-type: y mandatory;
+		scroll-behavior: smooth;
+	}
+
+	.snap-section {
+		height: 100vh;
+		scroll-snap-align: start;
+		scroll-snap-stop: always;
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		overflow: hidden;
+	}
+
+	/* Inner scrollable wrapper for content-heavy sections */
+	.fin-section-inner {
+		width: 100%;
+		max-height: 100vh;
+		overflow-y: auto;
+		padding: 80px 0 40px;
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+	}
+	.fin-section-inner::-webkit-scrollbar {
+		display: none;
+	}
+
 	/* ─── VARIABLES ─── */
 	:root {
 		--navy: #0f1b2e;
@@ -511,14 +596,8 @@ import { Icon } from 'astro-icon/components';
 
 	/* ─── HERO ─── */
 	.fin-hero {
-		min-height: 100vh;
-		display: flex;
-		align-items: center;
-		justify-content: center;
 		text-align: center;
 		padding: 80px 24px 60px;
-		position: relative;
-		overflow: hidden;
 		background: #fff;
 	}
 	.hero-bg {
@@ -579,7 +658,6 @@ import { Icon } from 'astro-icon/components';
 
 	/* ─── STATS ─── */
 	.fin-stats {
-		padding: 100px 0;
 		background: var(--bg-soft);
 	}
 	.stats-grid {
@@ -621,8 +699,8 @@ import { Icon } from 'astro-icon/components';
 
 	/* ─── ZERO EURO ─── */
 	.fin-zero {
-		padding: 80px 0;
 		background: #fff;
+		padding: 0 24px;
 	}
 	.zero-box {
 		text-align: center;
@@ -675,7 +753,6 @@ import { Icon } from 'astro-icon/components';
 
 	/* ─── STEPS ─── */
 	.fin-steps {
-		padding: 100px 0;
 		background: var(--bg-soft);
 	}
 	.steps-list {
@@ -724,7 +801,6 @@ import { Icon } from 'astro-icon/components';
 
 	/* ─── FORMATION ─── */
 	.fin-formation {
-		padding: 100px 0;
 		background: #fff;
 	}
 	.formation-grid {
@@ -807,7 +883,6 @@ import { Icon } from 'astro-icon/components';
 
 	/* ─── DISPOSITIFS ─── */
 	.fin-dispositifs {
-		padding: 100px 0;
 		background: var(--bg-soft);
 	}
 	.dispositif-grid {
@@ -890,8 +965,10 @@ import { Icon } from 'astro-icon/components';
 
 	/* ─── FAQ ─── */
 	.fin-faq {
-		padding: 100px 0;
 		background: #fff;
+	}
+	.fin-faq-2 {
+		background: var(--bg-soft);
 	}
 	.faq-list {
 		max-width: 680px;
@@ -927,8 +1004,9 @@ import { Icon } from 'astro-icon/components';
 
 	/* ─── CTA FINAL ─── */
 	.fin-cta {
-		padding: 100px 0 0;
 		background: var(--navy);
+		flex-direction: column;
+		padding: 0 24px;
 	}
 	.cta-box-fin {
 		text-align: center;
@@ -1021,8 +1099,10 @@ import { Icon } from 'astro-icon/components';
 	/* ─── RESPONSIVE ─── */
 	@media (max-width: 640px) {
 		.fin-hero {
-			padding: 70px 16px 40px;
-			min-height: auto;
+			padding: 60px 16px 20px;
+		}
+		.fin-section-inner {
+			padding: 70px 0 20px;
 		}
 		.fin-hero-title {
 			font-size: clamp(1.5rem, 7vw, 2rem);
@@ -1046,9 +1126,6 @@ import { Icon } from 'astro-icon/components';
 			font-size: 14px;
 		}
 
-		.fin-stats, .fin-steps, .fin-formation, .fin-dispositifs, .fin-faq {
-			padding: 60px 0;
-		}
 		.section-header {
 			margin-bottom: 32px;
 		}

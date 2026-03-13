@@ -59,6 +59,10 @@ import { Icon } from 'astro-icon/components';
 				</span>
 				<h2 class="section-title">Un accompagnement <em>complet</em></h2>
 			</div>
+			<div class="image-placeholder reveal">
+				<Icon name="lucide:image" size={28} />
+				<span class="image-placeholder-text">Photo d'un ecran montrant un tableau de bord avec les prestations SEO en cours</span>
+			</div>
 			<div class="stats-duo">
 				<div class="stat-card reveal">
 					<div class="stat-icon"><Icon name="lucide:layout" size={22} /></div>
@@ -78,6 +82,10 @@ import { Icon } from 'astro-icon/components';
 	<section class="snap-section stats-section stats-alt">
 		<div class="parallax-bg parallax-gradient-1b"></div>
 		<div class="section-content stats-layout">
+			<div class="image-placeholder reveal">
+				<Icon name="lucide:image" size={28} />
+				<span class="image-placeholder-text">Photo d'une personne repondant rapidement sur son telephone, ambiance pro et chaleureuse</span>
+			</div>
 			<div class="stats-duo">
 				<div class="stat-card reveal">
 					<div class="stat-icon"><Icon name="lucide:clock" size={22} /></div>
@@ -107,15 +115,27 @@ import { Icon } from 'astro-icon/components';
 			<div class="services-duo">
 				<div class="service-card reveal">
 					<div class="service-icon"><Icon name="lucide:map-pin" size={22} /></div>
-					<h3>Google My Business</h3>
-					<p>Creation, optimisation et gestion de votre fiche Google. Posts, avis, rapports.</p>
-					<span class="service-price">Des 25&euro;/mois</span>
+					<div class="service-card-body">
+						<div class="image-placeholder">
+							<Icon name="lucide:image" size={28} />
+							<span class="image-placeholder-text">Capture d'ecran d'une fiche Google Business optimisee avec photos et avis 5 etoiles</span>
+						</div>
+						<h3>Google My Business</h3>
+						<p>Creation, optimisation et gestion de votre fiche Google. Posts, avis, rapports.</p>
+						<span class="service-price">Des 25&euro;/mois</span>
+					</div>
 				</div>
 				<div class="service-card reveal">
 					<div class="service-icon"><Icon name="lucide:globe" size={22} /></div>
-					<h3>Site Web</h3>
-					<p>Site vitrine responsive, optimise SEO. Reservation, commande en ligne, maintenance.</p>
-					<span class="service-price">Des 800&euro;</span>
+					<div class="service-card-body">
+						<div class="image-placeholder">
+							<Icon name="lucide:image" size={28} />
+							<span class="image-placeholder-text">Mockup d'un site vitrine responsive sur mobile et desktop, design moderne</span>
+						</div>
+						<h3>Site Web</h3>
+						<p>Site vitrine responsive, optimise SEO. Reservation, commande en ligne, maintenance.</p>
+						<span class="service-price">Des 800&euro;</span>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -135,15 +155,27 @@ import { Icon } from 'astro-icon/components';
 			<div class="services-duo">
 				<div class="service-card reveal">
 					<div class="service-icon"><Icon name="lucide:search" size={22} /></div>
-					<h3>Referencement SEO</h3>
-					<p>Audit technique, optimisation on-page, articles de blog, mots-cles locaux.</p>
-					<span class="service-price">Des 15&euro;/mois</span>
+					<div class="service-card-body">
+						<div class="image-placeholder">
+							<Icon name="lucide:image" size={28} />
+							<span class="image-placeholder-text">Graphique de croissance du trafic organique Google Analytics, courbe montante</span>
+						</div>
+						<h3>Referencement SEO</h3>
+						<p>Audit technique, optimisation on-page, articles de blog, mots-cles locaux.</p>
+						<span class="service-price">Des 15&euro;/mois</span>
+					</div>
 				</div>
 				<div class="service-card reveal">
 					<div class="service-icon"><Icon name="lucide:smartphone" size={22} /></div>
-					<h3>Reseaux Sociaux</h3>
-					<p>Instagram, Facebook, TikTok — creation de comptes, publications, gestion complete.</p>
-					<span class="service-price">Des 49&euro;/mois</span>
+					<div class="service-card-body">
+						<div class="image-placeholder">
+							<Icon name="lucide:image" size={28} />
+							<span class="image-placeholder-text">Grille Instagram d'un restaurant avec photos pro de plats et ambiance</span>
+						</div>
+						<h3>Reseaux Sociaux</h3>
+						<p>Instagram, Facebook, TikTok — creation de comptes, publications, gestion complete.</p>
+						<span class="service-price">Des 49&euro;/mois</span>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -163,15 +195,27 @@ import { Icon } from 'astro-icon/components';
 			<div class="services-duo">
 				<div class="service-card reveal">
 					<div class="service-icon"><Icon name="lucide:palette" size={22} /></div>
-					<h3>Creation Visuelle</h3>
-					<p>Visuels IA realistes, montage video, templates, menus, flyers.</p>
-					<span class="service-price">Des 15&euro;</span>
+					<div class="service-card-body">
+						<div class="image-placeholder">
+							<Icon name="lucide:image" size={28} />
+							<span class="image-placeholder-text">Avant/apres d'un visuel de restaurant genere par IA, rendu photorealiste</span>
+						</div>
+						<h3>Creation Visuelle</h3>
+						<p>Visuels IA realistes, montage video, templates, menus, flyers.</p>
+						<span class="service-price">Des 15&euro;</span>
+					</div>
 				</div>
 				<div class="service-card reveal">
 					<div class="service-icon"><Icon name="lucide:star" size={22} /></div>
-					<h3>Avis & E-reputation</h3>
-					<p>QR codes, strategie de collecte, reponses aux avis, veille reputation.</p>
-					<span class="service-price">Des 19&euro;</span>
+					<div class="service-card-body">
+						<div class="image-placeholder">
+							<Icon name="lucide:image" size={28} />
+							<span class="image-placeholder-text">QR code sur une table de restaurant avec notification d'avis 5 etoiles</span>
+						</div>
+						<h3>Avis & E-reputation</h3>
+						<p>QR codes, strategie de collecte, reponses aux avis, veille reputation.</p>
+						<span class="service-price">Des 19&euro;</span>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -184,6 +228,10 @@ import { Icon } from 'astro-icon/components';
 			<div class="trust-solo-icon"><Icon name="lucide:sparkles" size={32} /></div>
 			<h3 class="trust-solo-title">L'IA comme levier</h3>
 			<p class="trust-solo-desc">Redaction, visuels, analyse — l'intelligence artificielle accelere chaque tache. Le gain est repercute sur vos prix.</p>
+			<div class="image-placeholder" style="margin-top: 24px;">
+				<Icon name="lucide:image" size={28} />
+				<span class="image-placeholder-text">Illustration d'un assistant IA creant des visuels et du contenu marketing, style futuriste et accessible</span>
+			</div>
 		</div>
 	</section>
 
@@ -194,6 +242,10 @@ import { Icon } from 'astro-icon/components';
 			<div class="trust-solo-icon"><Icon name="lucide:user" size={32} /></div>
 			<h3 class="trust-solo-title">Un interlocuteur unique</h3>
 			<p class="trust-solo-desc">Pas d'agence, pas de commercial. Un seul contact dedie qui connait votre projet de A a Z.</p>
+			<div class="image-placeholder" style="margin-top: 24px;">
+				<Icon name="lucide:image" size={28} />
+				<span class="image-placeholder-text">Photo portrait professionnel de Remi souriant, debout devant un ordinateur, ambiance bureau moderne</span>
+			</div>
 		</div>
 	</section>
 
@@ -204,6 +256,10 @@ import { Icon } from 'astro-icon/components';
 			<div class="trust-solo-icon"><Icon name="lucide:zap" size={32} /></div>
 			<h3 class="trust-solo-title">Reactivite exemplaire</h3>
 			<p class="trust-solo-desc">Reponse en moins de 24h en semaine. Echanges par WhatsApp ou email, comme vous preferez.</p>
+			<div class="image-placeholder" style="margin-top: 24px;">
+				<Icon name="lucide:image" size={28} />
+				<span class="image-placeholder-text">Notification WhatsApp avec une reponse rapide, horloge montrant un delai court</span>
+			</div>
 		</div>
 	</section>
 
@@ -212,6 +268,10 @@ import { Icon } from 'astro-icon/components';
 		<div class="parallax-bg parallax-gradient-4"></div>
 		<div class="cta-center">
 			<div class="cta-box reveal">
+				<div class="image-placeholder">
+					<Icon name="lucide:image" size={28} />
+					<span class="image-placeholder-text">Photo de Remi en situation de travail avec un client, ambiance conviviale et professionnelle</span>
+				</div>
 				<h2>Pret a devenir <em>visible</em> ?</h2>
 				<p>Discutons de votre projet. Premier echange gratuit et sans engagement.</p>
 				<div class="cta-actions">
@@ -726,6 +786,10 @@ import { Icon } from 'astro-icon/components';
 		margin-bottom: 18px;
 		color: var(--accent);
 	}
+	.service-card-body {
+		flex: 1;
+		min-width: 0;
+	}
 	.service-card h3 {
 		font-size: 18px;
 		font-weight: 700;
@@ -883,6 +947,56 @@ import { Icon } from 'astro-icon/components';
 		font-size: 11px !important;
 	}
 
+	/* ─── IMAGE PLACEHOLDERS ─── */
+	.image-placeholder {
+		width: 100%;
+		max-width: 340px;
+		aspect-ratio: 16/10;
+		border-radius: 16px;
+		border: 2px dashed #cbd5e1;
+		background: #f1f5f9;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 8px;
+		padding: 16px;
+		margin: 0 auto 20px;
+	}
+	.image-placeholder svg {
+		width: 28px;
+		height: 28px;
+		color: #cbd5e1;
+	}
+	.image-placeholder-text {
+		font-size: 12px;
+		color: #94a3b8;
+		text-align: center;
+		line-height: 1.4;
+	}
+
+	/* Placeholder inside service cards: smaller */
+	.service-card .image-placeholder {
+		max-width: 100%;
+		aspect-ratio: 16/9;
+		margin: 0 0 12px;
+		padding: 12px;
+	}
+
+	/* Placeholder in CTA: adapt to dark background */
+	.cta-box .image-placeholder {
+		border-color: rgba(255, 255, 255, 0.2);
+		background: rgba(255, 255, 255, 0.05);
+		max-width: 280px;
+		margin-bottom: 24px;
+	}
+	.cta-box .image-placeholder svg {
+		color: rgba(255, 255, 255, 0.2);
+	}
+	.cta-box .image-placeholder-text {
+		color: rgba(255, 255, 255, 0.35);
+	}
+
 	/* ─── RESPONSIVE ─── */
 
 	/* Tablet */
@@ -935,6 +1049,22 @@ import { Icon } from 'astro-icon/components';
 		}
 		.section-title {
 			font-size: clamp(1.2rem, 5vw, 1.6rem);
+		}
+
+		/* Placeholders mobile */
+		.image-placeholder {
+			max-width: 260px;
+			padding: 12px;
+			margin-bottom: 14px;
+		}
+		.image-placeholder-text {
+			font-size: 10px;
+		}
+		.service-card .image-placeholder {
+			display: none;
+		}
+		.cta-box .image-placeholder {
+			max-width: 220px;
 		}
 
 		/* Stats duo compact */
