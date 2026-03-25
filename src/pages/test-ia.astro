@@ -1,0 +1,15 @@
+---
+import Layout from '../layouts/Layout.astro';
+import AIDetector from '../components/AIDetector.jsx';
+---
+
+<Layout>
+	<AIDetector client:load />
+</Layout>
+
+<style is:global>
+	html, body {
+		overflow: auto !important;
+		height: auto !important;
+	}
+</style>
